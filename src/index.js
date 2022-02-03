@@ -1,10 +1,14 @@
 import express from "express";
-import res from "express/lib/response";
+import app from "./app";
+import "./databese";
 
-const app = express();
+
 app.listen(3000);
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
 console.log("server on port", 3000);
+
+const path = require("path")
+
+console.log(path.join(__dirname, "public"));
+
+app.use(express.static(path.join(__dirname, "public"))) //Conecta el Front con el back
