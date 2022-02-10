@@ -13,7 +13,6 @@ export default router;
 import { Router } from "express";
 
 import { postLogin } from "../controllers/loginController.js";
-import  { loginSchema } from "../models/login.js";
 
 const router = Router();
 

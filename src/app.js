@@ -1,4 +1,6 @@
 import express from "express";
+import bodyParser from "body-parser";
+
 import loginRoutes from "./routes/loginRoutes";
 
 const app = express();
@@ -9,8 +11,13 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
 app.use(loginRoutes);
-
-
 
 export default app;
