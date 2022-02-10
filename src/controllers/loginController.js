@@ -7,6 +7,9 @@ import jsonwebtoken from "jsonwebtoken";
 
 export const postLogin = async (request, response) => {
 
+    console.log(request)
+    response.status(200).json({message: "login exitoso"});
+/*
     try {
 
         const email = request.body.email;
@@ -58,7 +61,7 @@ export const postLogin = async (request, response) => {
             response.status(500).json({ error: error.message });
         }
     }
-
+*/
 }
 
 

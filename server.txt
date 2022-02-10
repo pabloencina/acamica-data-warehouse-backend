@@ -57,6 +57,9 @@ server.use(
 //server.use(administratorRoutes);
 server.use(loginRoutes);
 //server.use(orderRoutes);
+
+// Configurar cabeceras y cors
+
 server.listen(server.get("port"))
 console.log(`Se ha iniciado el servidor en el puerto ${PORT}`);
 

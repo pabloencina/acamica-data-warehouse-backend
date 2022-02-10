@@ -17,13 +17,6 @@ import  { loginSchema } from "../models/login.js";
 
 const router = Router();
 
-router.get("/login",async (req, res) => {
-
-  //const login = await loginSchema
-
-  res.json(login);
-});
-
 router.post("/login", postLogin);
 
 export default router;
