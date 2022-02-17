@@ -1,11 +1,10 @@
 // import { InvalidIdError, NotFoundError } from "../error.js"
 import jsonwebtoken from "jsonwebtoken";
-//import { findUserByEmailAndPasswordDB } from "../repositories/userRepository.js"
-//import { findAdministratorByUserIdDB } from "../repositories/administratorRepository.js";
-//import { findCustomerByUserIdDB } from "../repositories/customerRepository.js";
 
 export const postLogin = async (request, response) => {
+
 console.log(request)
+
   try {
     const email = request.body.email;
     const password = request.body.password;
@@ -36,3 +35,5 @@ console.log(request)
         */
   }
 };
+
+export default postLogin
