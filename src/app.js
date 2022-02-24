@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 
 import loginRoutes from "./routes/loginRoutes";
+import userRoutes from "./routes/userRoutes"
 
 const app = express();
 app.use((req, res, next) => {
@@ -19,5 +20,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(loginRoutes);
+app.use(userRoutes)
 
 export default app;
