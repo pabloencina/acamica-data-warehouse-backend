@@ -1,4 +1,4 @@
-import { usersSchema } from "../models/usersModels";
+import { usersSchema } from "../models/userModel";
 
 //import { InvalidIdError, InvalidObjectError, NotFoundError } from "../error.js";
 
