@@ -1,4 +1,4 @@
-import { usersSchema } from "../models/userModel";
+import { findAllUser } from "../services/userService";
 
 //import { InvalidIdError, InvalidObjectError, NotFoundError } from "../error.js";
 
@@ -14,21 +14,11 @@ import { usersSchema } from "../models/userModel";
 
 export const getUsers = async (request, response) => {
   try {
-    let users = [
-      {
-        userId: 1,
-        name: "string",
-        surname: "string",
-        email: "string",
-        profile: "ADMIN",
-        phone: "string",
-        password: "string",
-      },
-    ];
+    let users =  await findAllUser()
     //Buscar todos los usuarios
     //En bucle recorrer todos los customers y agregarle el usuario que corresponde
+
     response.status(200).json(users);
-    console.log(users);
   } catch (error) {
     response.status(500).json({ error: "Try later..." });
   }
