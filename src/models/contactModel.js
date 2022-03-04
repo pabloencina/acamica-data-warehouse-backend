@@ -5,25 +5,21 @@ export const contactsSchema = new Schema(
       name: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
       surname: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
       position: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
       companies: {
         type: Object,
         required: true,
-        unique: true,
         trim: true,
       },
       email: {
@@ -35,7 +31,6 @@ export const contactsSchema = new Schema(
       cities: {
         type: Object,
         required: true,
-        unique: true,
         trim: true,
       },
       done: Boolean,

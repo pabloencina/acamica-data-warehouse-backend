@@ -22,4 +22,5 @@ app.use(bodyParser.json())
 app.use(loginRoutes);
 app.use(userRoutes)
 
+
 export default app;

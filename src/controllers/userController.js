@@ -1,4 +1,5 @@
 import { findAllUser } from "../services/userService";
+import { createUser } from "../services/userService";
 
 //import { InvalidIdError, InvalidObjectError, NotFoundError } from "../error.js";
 
@@ -24,67 +25,27 @@ export const getUsers = async (request, response) => {
   }
 };
 
-/*
-export const getAdministratorById = async (request, response) => {
 
-    try {
-
-        const administratorID = validateId(request.params.administratorId)
-        //console.log(adminstratorId)
-        const administratorByIdDB = await findAdministratorByIdDB(administratorID)
-
-        if (administratorByIdDB === null) {
-            throw new NotFoundError("Can't find administrator.administratorId = " + administratorID)
-        }
-
-        response.status(200).json(administratorByIdDB);
-
-    } catch (error) {
-
-        response.status(500).json({ error: "Try later..." })
-
-    }
-
-}
-
-
-export const postAdministrators = async (request, response) => {
-
-    try {
-
+export const postUser = async (request, response) => {
+    
+      try {
         const body = request.body;
-        const userBody = request.body.user;
+        console.log(body);
+        let userSaved = await createUser(body);
 
-        User.validate(userBody);
-
-        const user = new User(null, userBody.name, userBody.surname, userBody.email, userBody.phone, userBody.password, true);
-
-        let userSaved = await saveUserDB(user);
-
-        Administrator.validate(body);
-
-        const administrator = new Administrator(null, body.identificationNumber, userSaved);
-
-        let administratorSaved = await saveAdministratorDB(administrator);
-
-        response.status(201).json(administratorSaved);
-
-    } catch (error) {
-
-        if (error instanceof InvalidIdError) {
-
-            response.status(400).json({ error: error.message });
-
-        } else if (error instanceof InvalidObjectError) {
-
-            response.status(400).json({ error: error.message });
-
-        } else {
-
-            response.status(500).json({ error: error.message });
-        }
-
-    }
-
-}
-*/
+        response.status(201).json(userSaved);
+    
+        response.status(200).json();
+      } catch (error) {
+        response.status(500).json({ error: error.message });
+        /*
+            if (error instanceof InvalidIdError) {
+                response.status(400).json({ error: error.message });
+            } else if (error instanceof NotFoundError) {
+                response.status(404).json({ error: error.message })
+            } else {
+                response.status(500).json({ error: error.message });
+            }
+            */
+      }
+    };

@@ -5,13 +5,11 @@ const usersSchema = new Schema(
       name: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
       surname: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
       email: {
@@ -23,13 +21,11 @@ const usersSchema = new Schema(
       password: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
       profile: {
         type: Object,
         required: true,
-        unique: true,
         trim: true,
       },
       done: Boolean,

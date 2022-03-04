@@ -5,13 +5,11 @@ export const countriesSchema = new Schema(
       name: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
       cities: {
         type: Object,
         required: true,
-        unique: true,
         trim: true,
       },
       done: Boolean,

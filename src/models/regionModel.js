@@ -5,13 +5,11 @@ export const regionsSchema = new Schema(
       name: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
       countries: {
         type: Object,
         required: true,
-        unique: true,
         trim: true,
       },
       done: Boolean,

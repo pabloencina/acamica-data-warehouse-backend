@@ -17,19 +17,16 @@ export const companiesSchema = new Schema(
       phone: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
-      adress: {
+      address: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
       },
       cities: {
         type: Object,
         required: true,
-        unique: true,
         trim: true,
       },
       done: Boolean,
