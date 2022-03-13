@@ -27,6 +27,8 @@ const usersSchema = new Schema(
         type: Object,
         required: true,
         trim: true,
+        // VALIDAR LA PERTENENCIA EN BACKEND
+        // BASIC, ADMIN
       },
       done: Boolean,
     },

@@ -2,28 +2,23 @@
 import jsonwebtoken from "jsonwebtoken";
 
 export const postLogin = async (request, response) => {
-
-console.log(request)
-
   try {
     const email = request.body.email;
     const password = request.body.password;
-    console.log(email);
-    console.log(password);
     const secretJWT = "ponerAlgoSuperComplicadoConNumuerosYCaracteres1234";
 
     const userRecovered = {
-        email: email,
-        password: password
-    }
-    
+      email: email,
+      password: password,
+    };
+
     const token = jsonwebtoken.sign(userRecovered, secretJWT, {
       expiresIn: "120m",
     });
 
     response.status(200).json(token);
   } catch (error) {
-    response.status(500).json({ error: error.message });
+    response.status(500).json({ error: "Error" });
     /*
         if (error instanceof InvalidIdError) {
             response.status(400).json({ error: error.message });
@@ -36,4 +31,4 @@ console.log(request)
   }
 };
 
-export default postLogin
+export default postLogin;
