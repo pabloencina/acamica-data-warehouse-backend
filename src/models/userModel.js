@@ -9,6 +9,7 @@ const usersSchema = new Schema(
       type: String,
       required: true,
       trim: true,
+      // Buscar la forma de definir max y min len para cada campo.
     },
     surname: {
       type: String,
