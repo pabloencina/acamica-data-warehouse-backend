@@ -46,7 +46,7 @@ export const postUser = async (request, response) => {
     } else {
       response.status(500).json({ error: "ERROR" });
     }
-    
+    // SI EL ERROR ES DE VALIDACION; CONSTETAR CON 404
     /*
     if (error instanceof InvalidIdError) {
         response.status(400).json({ error: error.message });
