@@ -1,17 +1,7 @@
 import { findAllUser } from "../services/userService";
 import { createUser } from "../services/userService";
+import { formatValidationErrors } from "../utils/errorFormater";
 
-//import { InvalidIdError, InvalidObjectError, NotFoundError } from "../error.js";
-
-/*import {
-    findAllAdministratorsDB,
-    saveAdministratorDB,
-    findAdministratorByIdDB
-} from "../repositories/administratorRepository.js";*/
-
-//import { validateId } from "./idValidator.js";
-
-//import { saveUserDB } from "../repositories/userRepository.js";
 
 export const getUsers = async (request, response) => {
   try {
@@ -33,26 +23,19 @@ export const postUser = async (request, response) => {
 
     response.status(201).json(userSaved);
 
-    response.status(200).json();
   } catch (error) {
-    // console.log(error);
 
-    // if (error.code && error.code === 11000) {
-    //   response
-    //     .status(409)
-    //     .json({
-    //       error: Object.keys(error.keyPattern)[0] + " is already in DB.",
-    //     });
-    // } else if(error._message && error._message === "Users validation failed"){
-    //   response
-    //     .status(400)
-    //     .json({
-    //       errors: error.errors,
-    //     });
-    // }
-    // else {
+    if (error.code && error.code === 11000) {
+      response.status(409).json({
+        error: Object.keys(error.keyPattern)[0] + " is already in DB.",
+      });
+    } else if (error._message && error._message === "Users validation failed") {
+      response.status(400).json({
+        errors: formatValidationErrors(error),
+      });
+    } else {
       response.status(500).json({ error: "Internal Server Error" });
-    // }
+    }
 
   }
 };
