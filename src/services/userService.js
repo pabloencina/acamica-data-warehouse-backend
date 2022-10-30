@@ -32,7 +32,6 @@ export const findUserById = async (id) => {
   if (validator.isMongoId(id)) {
     try {
       const usersById = await usersModel.findOne({ _id: id });
-      console.log(usersById);
       return usersById;
     } catch (error) {
       console.error(error);
@@ -43,13 +42,26 @@ export const findUserById = async (id) => {
   }
 };
 
-export const updateUser = async (user) => {
+export const updateUserById = async (id, user) => {
+  const { name, surname, profile, password, email } = user;
   try {
-    const userToUpdate = new usersModel(user);
+    await usersModel.updateOne(
+      { _id: id },
+      { name, surname, profile, password, email }
+    );
 
-    const updatedUser = await userToUpdate.updateOne();
+    return await usersModel.findOne({ _id: id });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
 
-    return updatedUser;
+export const deleteUserById = async (id) => {
+  try {
+    const deletedUser = await usersModel.findOne({ _id: id });
+     const respDelete = await usersModel.deleteOne({ _id: id });
+    return deletedUser
   } catch (error) {
     console.error(error);
     throw error;

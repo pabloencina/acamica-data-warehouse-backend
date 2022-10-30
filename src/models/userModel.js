@@ -28,7 +28,7 @@ const usersSchema = new Schema(
       type: String,
       required: true,
       trim: true,
-      select: false,
+      // select: false,
       maxlength: "36",
       minlength: "8",
     },
