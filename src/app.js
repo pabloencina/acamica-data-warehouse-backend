@@ -6,6 +6,7 @@ import userRoutes from "./routes/userRoutes";
 import regionRoutes from "./routes/regionRoutes";
 import countryRoutes from "./routes/countryRoutes";
 import cityRoutes from "./routes/cityRoutes";
+import companyRoutes from "./routes/companyRoutes";
 
 const app = express();
 app.use((req, res, next) => {
@@ -30,5 +31,6 @@ app.use(userRoutes);
 app.use(regionRoutes);
 app.use(countryRoutes);
 app.use(cityRoutes);
+app.use(companyRoutes);
 
 export default app;
