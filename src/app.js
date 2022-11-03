@@ -5,6 +5,7 @@ import loginRoutes from "./routes/loginRoutes";
 import userRoutes from "./routes/userRoutes";
 import regionRoutes from "./routes/regionRoutes";
 import countryRoutes from "./routes/countryRoutes";
+import cityRoutes from "./routes/cityRoutes";
 
 const app = express();
 app.use((req, res, next) => {
@@ -28,5 +29,6 @@ app.use(loginRoutes);
 app.use(userRoutes);
 app.use(regionRoutes);
 app.use(countryRoutes);
+app.use(cityRoutes);
 
 export default app;
