@@ -1,24 +1,23 @@
 import { Schema, model } from "mongoose";
 
 export const regionsSchema = new Schema(
-    {
-      name: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      countries: {
-        type: Object,
-        required: true,
-        trim: true,
-      },
-      done: Boolean,
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
     },
-    {
-      timestamps: true,
-    }
-  );
-  
-  export default model("Regions", regionsSchema);
+    countries: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Countries",
+      },
+    ],
+    done: Boolean,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-  
+export default model("Regions", regionsSchema);

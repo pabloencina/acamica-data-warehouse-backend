@@ -1,6 +1,5 @@
 import { Schema, model } from "mongoose";
 
-
 export const citiesSchema = new Schema(
   {
     name: {
