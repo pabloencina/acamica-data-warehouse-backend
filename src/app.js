@@ -8,6 +8,7 @@ import countryRoutes from "./routes/countryRoutes";
 import cityRoutes from "./routes/cityRoutes";
 import companyRoutes from "./routes/companyRoutes";
 import contactRoutes from "./routes/contactRoutes";
+import channelRoutes from "./routes/channelRoutes";
 
 const app = express();
 app.use((req, res, next) => {
@@ -34,5 +35,6 @@ app.use(countryRoutes);
 app.use(cityRoutes);
 app.use(companyRoutes);
 app.use(contactRoutes);
+app.use(channelRoutes);
 
 export default app;

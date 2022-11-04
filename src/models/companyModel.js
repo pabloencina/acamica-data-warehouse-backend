@@ -25,9 +25,9 @@ export const companiesSchema = new Schema(
       trim: true,
     },
     city: {
-      type: Object,
+      type: Schema.Types.ObjectId,
+      ref: "Cities",
       required: true,
-      trim: true,
     },
     done: Boolean,
   },
