@@ -11,7 +11,6 @@ export const findAllRegions = async () => {
         path: "cities",
       },
     });
-    console.log(allRegions);
     return allRegions;
   } catch (error) {
     console.error(error);

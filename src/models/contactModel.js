@@ -47,13 +47,11 @@ export const contactsSchema = new Schema(
       ref: "Companies",
       required: true,
     },
-
     city: {
       type: Schema.Types.ObjectId,
       ref: "Cities",
       required: true,
     },
-
     address: {
       type: String,
       required: true,

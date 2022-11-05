@@ -1,4 +1,4 @@
-import findChannels from "../services/channelService";
+import { findChannels } from "../services/channelService";
 
 export const getChannels = async (request, response) => {
   try {

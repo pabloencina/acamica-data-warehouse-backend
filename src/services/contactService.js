@@ -5,8 +5,12 @@ const validator = require("validator");
 
 export const findAllContacts = async () => {
   try {
-    const allContacts = await contactModel.find();
-    console.log(allContacts);
+    const allContacts = await contactModel.find().populate({
+      path: "channels",
+      populate: {
+        path: "channel",
+      },
+    });
     return allContacts;
   } catch (error) {
     console.error(error);

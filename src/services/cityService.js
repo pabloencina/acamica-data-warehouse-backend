@@ -6,7 +6,6 @@ const validator = require("validator");
 export const findAllCities = async () => {
   try {
     const allCities = await cityModel.find();
-    console.log(allCities);
     return allCities;
   } catch (error) {
     console.error(error);
