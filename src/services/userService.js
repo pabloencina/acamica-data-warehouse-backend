@@ -13,22 +13,7 @@ export const findAllUser = async () => {
   }
 };
 
-export const createUser = async (user) => {
-  try {
-    const userToSave = new usersModel(user);
-
-    const savedUser = await userToSave.save();
-
-    return savedUser;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
-
 export const findUserById = async (id) => {
-  console.log(id);
-
   if (validator.isMongoId(id)) {
     try {
       const usersById = await usersModel.findOne({ _id: id });
@@ -39,6 +24,19 @@ export const findUserById = async (id) => {
     }
   } else {
     throw new InvalidIdError("The id is not valid");
+  }
+};
+
+export const createUser = async (user) => {
+  try {
+    const userToSave = new usersModel(user);
+
+    const savedUser = await userToSave.save();
+
+    return savedUser;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 };
 

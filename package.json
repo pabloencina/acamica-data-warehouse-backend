@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node"
   },
+  "engines": {
+    "node":"16.18.1",
+    "npm": "8.19.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pabloencina/acamica-data-warehouse-backend.git"

@@ -7,6 +7,7 @@ export const postLogin = async (request, response) => {
     const password = request.body.password;
     const secretJWT = "ponerAlgoSuperComplicadoConNumuerosYCaracteres1234";
 
+    // TODO: validar acá contra la colección de usuarios
     const userRecovered = {
       email: email,
       password: password,
