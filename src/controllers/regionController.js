@@ -1,3 +1,4 @@
+import { AlreadyInDbError, InvalidIdError, ValidationFailedError } from "../errors/errors";
 import { createRegion, findAllRegions, findRegionById, updateRegionById } from "../services/regionService";
 
 export const getRegions = async (request, response) => {
@@ -5,7 +6,7 @@ export const getRegions = async (request, response) => {
     let regions = await findAllRegions();
     response.status(200).json(regions);
   } catch (error) {
-    response.status(500).json({ error: "Try later..." });
+    response.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -15,9 +16,15 @@ export const getRegionById = async (request, response) => {
     response.status(200).json(regionById);
   } catch (error) {
     if (error instanceof InvalidIdError) {
-      response.status(406).json({ error: error.message });
+      response.status(409).json({
+        error: error.message,
+        message: error.message
+      });
     }
-    response.status(500).json({ error: "Try later..." });
+    response.status(500).json({ 
+      message: "Internal Server Error",
+      error: "Internal Server Error"
+    });
   }
 };
 
@@ -25,19 +32,23 @@ export const postRegion = async (request, response) => {
   try {
     const body = request.body;
     let regionSaved = await createRegion(body);
-
     response.status(201).json(regionSaved);
   } catch (error) {
-    if (error.code && error.code === 11000) {
+    if (error instanceof AlreadyInDbError) {
       response.status(409).json({
-        error: Object.keys(error.keyPattern)[0] + " is already in DB.",
+        error: error.message,
+        message: error.message
       });
-    } else if (error._message && error._message === "Users validation failed") {
+    } else if (error instanceof ValidationFailedError) {
       response.status(400).json({
-        errors: formatValidationErrors(error),
+        message: error.message,
+        errors: error.errors,
       });
     } else {
-      response.status(500).json({ error: "Internal Server Error" });
+      response.status(500).json({ 
+        message: "Internal Server Error",
+        error: "Internal Server Error"
+      });
     }
   }
 };
@@ -49,16 +60,16 @@ export const putRegionById = async (request, response) => {
     let regionUpdated = await updateRegionById(id, body);
     response.status(200).json(regionUpdated);
   } catch (error) {
-    if (error.code && error.code === 11000) {
-      response.status(409).json({
-        error: Object.keys(error.keyPattern)[0] + " is already in DB.",
-      });
-    } else if (error._message && error._message === "Users validation failed") {
+    if (error instanceof ValidationFailedError) {
       response.status(400).json({
-        errors: formatValidationErrors(error),
+        message: error.message,
+        error: error.errors,
       });
     } else {
-      response.status(500).json({ error: "Internal Server Error" });
+      response.status(500).json({ 
+        message: "Internal Server Error",
+        error: "Internal Server Error"
+      });
     }
   }
 };

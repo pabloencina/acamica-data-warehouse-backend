@@ -1,4 +1,4 @@
-import { InvalidIdError } from "../errors/invalidIdError";
+import { InvalidIdError } from "../errors/errors";
 import {
   findAllUser,
   updateUserById,
@@ -13,7 +13,10 @@ export const getUsers = async (request, response) => {
     let users = await findAllUser();
     response.status(200).json(users);
   } catch (error) {
-    response.status(500).json({ error: "Try later..." });
+    response.status(500).json({ 
+      message: "Internal Server Error",
+      error: "Internal Server Error"
+    });
   }
 };
 
@@ -23,9 +26,12 @@ export const getUserById = async (request, response) => {
     response.status(200).json(userById);
   } catch (error) {
     if (error instanceof InvalidIdError) {
-      response.status(406).json({ error: error.message });
+      response.status(409).json({ error: error.message });
     }
-    response.status(500).json({ error: "Try later..." });
+    response.status(500).json({ 
+      message: "Internal Server Error",
+      error: "Internal Server Error"
+    });
   }
 };
 
@@ -44,7 +50,10 @@ export const postUser = async (request, response) => {
         errors: formatValidationErrors(error),
       });
     } else {
-      response.status(500).json({ error: "Internal Server Error" });
+      response.status(500).json({ 
+        message: "Internal Server Error",
+        error: "Internal Server Error"
+      });
     }
   }
 };
@@ -56,16 +65,15 @@ export const putUserById = async (request, response) => {
     let userUpdated = await updateUserById(id, body);
     response.status(200).json(userUpdated);
   } catch (error) {
-    if (error.code && error.code === 11000) {
-      response.status(409).json({
-        error: Object.keys(error.keyPattern)[0] + " is already in DB.",
-      });
-    } else if (error._message && error._message === "Users validation failed") {
+    if (error._message && error._message === "Validation failed") {
       response.status(400).json({
         errors: formatValidationErrors(error),
       });
     } else {
-      response.status(500).json({ error: "Internal Server Error" });
+      response.status(500).json({ 
+        message: "Internal Server Error",
+        error: "Internal Server Error"
+      });
     }
   }
 };
@@ -76,16 +84,9 @@ export const deleteUserById = async (request, response) => {
     let userDeleted = await serviceDelete(id);
     response.status(200).json(userDeleted);
   } catch (error) {
-    if (error.code && error.code === 11000) {
-      response.status(409).json({
-        error: Object.keys(error.keyPattern)[0] + " is already in DB.",
-      });
-    } else if (error._message && error._message === "User validation failed") {
-      response.status(400).json({
-        errors: formatValidationErrors(error),
-      });
-    } else {
-      response.status(500).json({ error: "Internal Server Error" });
-    }
+    response.status(500).json({ 
+      message: "Internal Server Error",
+      error: "Internal Server Error"
+    });
   }
 };

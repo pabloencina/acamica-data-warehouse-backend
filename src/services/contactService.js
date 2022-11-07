@@ -1,7 +1,4 @@
-import { InvalidIdError } from "../errors/invalidIdError";
 import contactModel from "../models/contactModel";
-
-const validator = require("validator");
 
 export const findAllContacts = async () => {
   try {

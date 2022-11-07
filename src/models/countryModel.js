@@ -13,6 +13,11 @@ export const countriesSchema = new Schema(
         ref: "Cities",
       },
     ],
+    region: {
+      type: Schema.Types.ObjectId,
+      ref: "Regions",
+      required: true,
+    },
     done: Boolean,
   },
   {

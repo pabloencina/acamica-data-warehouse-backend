@@ -1,7 +1,4 @@
-import { InvalidIdError } from "../errors/invalidIdError";
 import channelModel from "../models/channelModel";
-
-const validator = require("validator");
 
 export const findChannels = async () => {
   try {

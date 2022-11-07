@@ -1,7 +1,4 @@
-import { InvalidIdError } from "../errors/invalidIdError";
 import cityModel from "../models/cityModel";
-
-const validator = require("validator");
 
 export const findAllCities = async () => {
   try {

@@ -1,4 +1,4 @@
-import { InvalidIdError } from "../errors/invalidIdError";
+import { InvalidIdError } from "../errors/errors";
 import usersModel from "../models/userModel";
 
 const validator = require("validator");
@@ -30,9 +30,7 @@ export const findUserById = async (id) => {
 export const createUser = async (user) => {
   try {
     const userToSave = new usersModel(user);
-
     const savedUser = await userToSave.save();
-
     return savedUser;
   } catch (error) {
     console.error(error);
@@ -45,9 +43,9 @@ export const updateUserById = async (id, user) => {
   try {
     await usersModel.updateOne(
       { _id: id },
-      { name, surname, profile, password, email }
+      { name, surname, profile, password, email },
+      { runValidators: true }
     );
-
     return await usersModel.findOne({ _id: id });
   } catch (error) {
     console.error(error);

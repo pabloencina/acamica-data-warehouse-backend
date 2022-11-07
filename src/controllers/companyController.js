@@ -5,6 +5,9 @@ export const getCompanies = async (request, response) => {
     let companies = await findAllCompanies();
     response.status(200).json(companies);
   } catch (error) {
-    response.status(500).json({ error: "Try later..." });
+    response.status(500).json({ 
+      message: "Internal Server Error",
+      error: "Internal Server Error"
+    });
   }
 };

@@ -5,6 +5,9 @@ export const getCities = async (request, response) => {
     let cities = await findAllCities();
     response.status(200).json(cities);
   } catch (error) {
-    response.status(500).json({ error: "Try later..." });
+    response.status(500).json({ 
+      message: "Internal Server Error",
+      error: "Internal Server Error"
+    });
   }
 };
