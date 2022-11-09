@@ -13,9 +13,9 @@ export const getUsers = async (request, response) => {
     let users = await findAllUser();
     response.status(200).json(users);
   } catch (error) {
-    response.status(500).json({ 
+    response.status(500).json({
       message: "Internal Server Error",
-      error: "Internal Server Error"
+      error: "Internal Server Error",
     });
   }
 };
@@ -26,11 +26,11 @@ export const getUserById = async (request, response) => {
     response.status(200).json(userById);
   } catch (error) {
     if (error instanceof InvalidIdError) {
-      response.status(409).json({ error: error.message });
+      response.status(400).json({ error: error.message });
     }
-    response.status(500).json({ 
+    response.status(500).json({
       message: "Internal Server Error",
-      error: "Internal Server Error"
+      error: "Internal Server Error",
     });
   }
 };
@@ -50,9 +50,9 @@ export const postUser = async (request, response) => {
         errors: formatValidationErrors(error),
       });
     } else {
-      response.status(500).json({ 
+      response.status(500).json({
         message: "Internal Server Error",
-        error: "Internal Server Error"
+        error: "Internal Server Error",
       });
     }
   }
@@ -70,9 +70,9 @@ export const putUserById = async (request, response) => {
         errors: formatValidationErrors(error),
       });
     } else {
-      response.status(500).json({ 
+      response.status(500).json({
         message: "Internal Server Error",
-        error: "Internal Server Error"
+        error: "Internal Server Error",
       });
     }
   }
@@ -84,9 +84,9 @@ export const deleteUserById = async (request, response) => {
     let userDeleted = await serviceDelete(id);
     response.status(200).json(userDeleted);
   } catch (error) {
-    response.status(500).json({ 
+    response.status(500).json({
       message: "Internal Server Error",
-      error: "Internal Server Error"
+      error: "Internal Server Error",
     });
   }
 };

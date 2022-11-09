@@ -5,9 +5,9 @@ export const getContacts = async (request, response) => {
     let contacts = await findAllContacts();
     response.status(200).json(contacts);
   } catch (error) {
-    response.status(500).json({ 
+    response.status(500).json({
       message: "Internal Server Error",
-      error: "Internal Server Error"
+      error: "Internal Server Error",
     });
   }
 };

@@ -1,4 +1,9 @@
-import { AlreadyInDbError, InvalidIdError, ValidationFailedError } from "../errors/errors";
+import {
+  AlreadyInDbError,
+  InvalidIdError,
+  NotFoundError,
+  ValidationFailedError,
+} from "../errors/errors";
 import regionModel from "../models/regionModel";
 import { formatValidationErrors } from "../utils/errorFormater";
 
@@ -46,10 +51,10 @@ export const createRegion = async (region) => {
   } catch (error) {
     console.error(error);
     if (error.code && error.code === 11000) {
-      throw new AlreadyInDbError(Object.keys(error.keyPattern)[0] + " is already in DB.")
+      throw new AlreadyInDbError(Object.keys(error.keyPattern)[0] + " is already in DB.");
     } else if (error._message && error._message === "Regions validation failed") {
-      const errors =  formatValidationErrors(error)
-      throw new ValidationFailedError("Validation failed", errors)
+      const errors = formatValidationErrors(error);
+      throw new ValidationFailedError("Validation failed", errors);
     }
     throw error;
   }
@@ -58,17 +63,18 @@ export const createRegion = async (region) => {
 export const updateRegionById = async (id, region) => {
   const { name } = region;
   try {
-    await regionModel.updateOne(
-      { _id: id },
-      { name },
-      { runValidators: true }
-    );
-    return await regionModel.findOne({ _id: id });
+    const regionToUpdate = await regionModel.findOne({ _id: id });
+    if (regionToUpdate) {
+      await regionModel.updateOne({ _id: id }, { name }, { runValidators: true });
+      return await regionModel.findOne({ _id: id });
+    } else {
+      throw new NotFoundError("region with id: " + id + " not found");
+    }
   } catch (error) {
     console.error(error);
     if (error._message && error._message === "Validation failed") {
-      const errors =  formatValidationErrors(error)
-      throw new ValidationFailedError("Validation failed", errors)
+      const errors = formatValidationErrors(error);
+      throw new ValidationFailedError("Validation failed", errors);
     }
     throw error;
   }

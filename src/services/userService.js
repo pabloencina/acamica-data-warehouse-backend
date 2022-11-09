@@ -56,8 +56,8 @@ export const updateUserById = async (id, user) => {
 export const deleteUserById = async (id) => {
   try {
     const deletedUser = await usersModel.findOne({ _id: id });
-     const respDelete = await usersModel.deleteOne({ _id: id });
-    return deletedUser
+    await usersModel.deleteOne({ _id: id });
+    return deletedUser;
   } catch (error) {
     console.error(error);
     throw error;

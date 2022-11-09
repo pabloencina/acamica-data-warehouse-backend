@@ -8,6 +8,11 @@ export const citiesSchema = new Schema(
       unique: true,
       trim: true,
     },
+    country: {
+      type: Schema.Types.ObjectId,
+      ref: "Countries",
+      required: true,
+    },
     done: Boolean,
   },
   {

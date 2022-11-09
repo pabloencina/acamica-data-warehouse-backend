@@ -1,5 +1,15 @@
-import { AlreadyInDbError, InvalidIdError, ValidationFailedError } from "../errors/errors";
-import { createRegion, findAllRegions, findRegionById, updateRegionById } from "../services/regionService";
+import {
+  AlreadyInDbError,
+  InvalidIdError,
+  NotFoundError,
+  ValidationFailedError,
+} from "../errors/errors";
+import {
+  createRegion,
+  findAllRegions,
+  findRegionById,
+  updateRegionById,
+} from "../services/regionService";
 
 export const getRegions = async (request, response) => {
   try {
@@ -16,14 +26,14 @@ export const getRegionById = async (request, response) => {
     response.status(200).json(regionById);
   } catch (error) {
     if (error instanceof InvalidIdError) {
-      response.status(409).json({
+      response.status(400).json({
         error: error.message,
-        message: error.message
+        message: error.message,
       });
     }
-    response.status(500).json({ 
+    response.status(500).json({
       message: "Internal Server Error",
-      error: "Internal Server Error"
+      error: "Internal Server Error",
     });
   }
 };
@@ -37,7 +47,7 @@ export const postRegion = async (request, response) => {
     if (error instanceof AlreadyInDbError) {
       response.status(409).json({
         error: error.message,
-        message: error.message
+        message: error.message,
       });
     } else if (error instanceof ValidationFailedError) {
       response.status(400).json({
@@ -45,9 +55,9 @@ export const postRegion = async (request, response) => {
         errors: error.errors,
       });
     } else {
-      response.status(500).json({ 
+      response.status(500).json({
         message: "Internal Server Error",
-        error: "Internal Server Error"
+        error: "Internal Server Error",
       });
     }
   }
@@ -65,10 +75,15 @@ export const putRegionById = async (request, response) => {
         message: error.message,
         error: error.errors,
       });
+    } else if (error instanceof NotFoundError) {
+      response.status(404).json({
+        message: error.message,
+        error: error.errors,
+      });
     } else {
-      response.status(500).json({ 
+      response.status(500).json({
         message: "Internal Server Error",
-        error: "Internal Server Error"
+        error: "Internal Server Error",
       });
     }
   }
