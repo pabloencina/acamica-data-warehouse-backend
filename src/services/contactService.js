@@ -13,12 +13,13 @@ export const findAllContacts = async () => {
       .populate({
         path: "city",
         populate: {
-          path: "contry",
+          path: "country",
           populate: {
             path: "region",
           },
         },
-      });
+      })
+      .populate("company");
     return allContacts;
   } catch (error) {
     console.error(error);
