@@ -70,9 +70,9 @@ export const postCity = async (request, response) => {
 export const putCityById = async (request, response) => {
   try {
     const body = request.body;
-    const id = request.params.countryId;
-    let countryUpdated = await updateCityById(id, body);
-    response.status(200).json(countryUpdated);
+    const id = request.params.cityId;
+    let cityUpdated = await updateCityById(id, body);
+    response.status(200).json(cityUpdated);
   } catch (error) {
     if (error instanceof ValidationFailedError) {
       response.status(400).json({

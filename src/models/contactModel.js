@@ -39,7 +39,6 @@ export const contactsSchema = new Schema(
     position: {
       type: String,
       required: true,
-      unique: true,
       trim: true,
     },
     company: {
