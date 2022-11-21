@@ -2,8 +2,9 @@ import { Schema, model } from "mongoose";
 
 const contactChannelSchema = new Schema({
   channel: {
-    type: Schema.Types.ObjectId,
-    ref: "Channels",
+    type: String,
+    required: true,
+    trim: true,
   },
   account: {
     type: String,

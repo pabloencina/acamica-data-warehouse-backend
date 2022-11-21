@@ -6,9 +6,6 @@ export const findAllContacts = async () => {
       .find()
       .populate({
         path: "channels",
-        populate: {
-          path: "channel",
-        },
       })
       .populate({
         path: "city",
