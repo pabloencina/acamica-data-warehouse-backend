@@ -3,12 +3,12 @@ import {
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
-} from "../errors/errors";
-import cityModel from "../models/cityModel";
-import countryModel from "../models/countryModel";
-import { formatValidationErrors } from "../utils/errorFormater";
+} from "../errors/errors.js";
+import cityModel from "../models/cityModel.js";
+import countryModel from "../models/countryModel.js";
+import { formatValidationErrors } from "../utils/errorFormater.js";
 
-const validator = require("validator");
+import validator from "validator";
 
 export const findAllCities = async () => {
   try {

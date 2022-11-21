@@ -1,7 +1,9 @@
 //import { DotenvConfigOptions } from "dotenv";
-import app from "./app";
-import "./database";
+import app from "./app.js";
+import "./database.js";
 
-app.listen(3500);
+const port = process.env.PORT || "3500";
 
-console.log("server on port", 3500);
+app.listen(port);
+
+console.log("server on port", port);

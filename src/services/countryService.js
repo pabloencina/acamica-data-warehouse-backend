@@ -3,12 +3,12 @@ import {
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
-} from "../errors/errors";
-import countryModel from "../models/countryModel";
-import regionModel from "../models/regionModel";
-import { formatValidationErrors } from "../utils/errorFormater";
+} from "../errors/errors.js";
+import countryModel from "../models/countryModel.js";
+import regionModel from "../models/regionModel.js";
+import { formatValidationErrors } from "../utils/errorFormater.js";
 
-const validator = require("validator");
+import validator from "validator";
 
 export const findAllCountries = async () => {
   try {

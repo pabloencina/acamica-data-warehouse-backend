@@ -1,12 +1,12 @@
-import { InvalidIdError } from "../errors/errors";
+import { InvalidIdError } from "../errors/errors.js";
 import {
   findAllUser,
   updateUserById,
   findUserById,
   createUser,
   deleteUserById as serviceDelete,
-} from "../services/userService";
-import { formatValidationErrors } from "../utils/errorFormater";
+} from "../services/userService.js";
+import { formatValidationErrors } from "../utils/errorFormater.js";
 
 export const getUsers = async (request, response) => {
   try {

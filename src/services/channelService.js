@@ -1,4 +1,4 @@
-import channelModel from "../models/channelModel";
+import channelModel from "../models/channelModel.js";
 
 export const findChannels = async () => {
   try {

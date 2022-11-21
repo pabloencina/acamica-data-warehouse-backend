@@ -1,7 +1,7 @@
-import { InvalidIdError } from "../errors/errors";
-import usersModel from "../models/userModel";
+import { InvalidIdError } from "../errors/errors.js";
+import usersModel from "../models/userModel.js";
 
-const validator = require("validator");
+import validator from "validator";
 
 export const findAllUser = async () => {
   try {

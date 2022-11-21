@@ -3,13 +3,13 @@ import {
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
-} from "../errors/errors";
+} from "../errors/errors.js";
 import {
   createRegion,
   findAllRegions,
   findRegionById,
   updateRegionById,
-} from "../services/regionService";
+} from "../services/regionService.js";
 
 export const getRegions = async (request, response) => {
   try {

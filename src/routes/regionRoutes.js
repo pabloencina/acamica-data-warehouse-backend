@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { getRegionById, getRegions, postRegion, putRegionById } from "../controllers/regionController";
+import {
+  getRegionById,
+  getRegions,
+  postRegion,
+  putRegionById,
+} from "../controllers/regionController.js";
 
 const router = Router();
 

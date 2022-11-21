@@ -1,14 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser";
 
-import loginRoutes from "./routes/loginRoutes";
-import userRoutes from "./routes/userRoutes";
-import regionRoutes from "./routes/regionRoutes";
-import countryRoutes from "./routes/countryRoutes";
-import cityRoutes from "./routes/cityRoutes";
-import companyRoutes from "./routes/companyRoutes";
-import contactRoutes from "./routes/contactRoutes";
-import channelRoutes from "./routes/channelRoutes";
+import loginRoutes from "./routes/loginRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import regionRoutes from "./routes/regionRoutes.js";
+import countryRoutes from "./routes/countryRoutes.js";
+import cityRoutes from "./routes/cityRoutes.js";
+import companyRoutes from "./routes/companyRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
+import channelRoutes from "./routes/channelRoutes.js";
 
 const app = express();
 app.use((req, res, next) => {

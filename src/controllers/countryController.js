@@ -3,13 +3,13 @@ import {
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
-} from "../errors/errors";
+} from "../errors/errors.js";
 import {
   createCountry,
   findAllCountries,
   findCountryById,
   updateCountryById,
-} from "../services/countryService";
+} from "../services/countryService.js";
 
 export const getCountries = async (request, response) => {
   try {

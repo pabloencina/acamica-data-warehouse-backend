@@ -4,7 +4,7 @@ import {
   getCompanyById,
   postCompany,
   putCompanyById,
-} from "../controllers/companyController";
+} from "../controllers/companyController.js";
 
 const router = Router();
 

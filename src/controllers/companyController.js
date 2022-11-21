@@ -3,13 +3,13 @@ import {
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
-} from "../errors/errors";
+} from "../errors/errors.js";
 import {
   createCompany,
   findAllCompanies,
   findCompanyById,
   updateCompanyById,
-} from "../services/companyService";
+} from "../services/companyService.js";
 
 export const getCompanies = async (request, response) => {
   try {

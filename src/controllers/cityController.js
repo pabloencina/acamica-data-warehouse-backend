@@ -3,8 +3,13 @@ import {
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
-} from "../errors/errors";
-import { createCity, findAllCities, findCityById, updateCityById } from "../services/cityService";
+} from "../errors/errors.js";
+import {
+  createCity,
+  findAllCities,
+  findCityById,
+  updateCityById,
+} from "../services/cityService.js";
 
 export const getCities = async (request, response) => {
   try {

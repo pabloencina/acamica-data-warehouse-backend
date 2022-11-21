@@ -1,4 +1,4 @@
-import { findAllContacts } from "../services/contactService";
+import { findAllContacts } from "../services/contactService.js";
 
 export const getContacts = async (request, response) => {
   try {
