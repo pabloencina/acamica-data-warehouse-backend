@@ -7,8 +7,6 @@ services:
     container_name: backend
     ports:
       - 3500:3500
-    volumes:
-      - .:/app
     environment:
       - PORT=$PORT
       - MONGO_URL=$MONGO_URL
