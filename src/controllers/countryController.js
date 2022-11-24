@@ -33,11 +33,12 @@ export const getCountryById = async (request, response) => {
         message: error.message,
         error: error.message,
       });
+    } else {
+      response.status(500).json({
+        message: "Internal Server Error",
+        error: "Internal Server Error",
+      });
     }
-    response.status(500).json({
-      message: "Internal Server Error",
-      error: "Internal Server Error",
-    });
   }
 };
 

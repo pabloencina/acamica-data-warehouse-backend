@@ -30,11 +30,12 @@ export const getRegionById = async (request, response) => {
         error: error.message,
         message: error.message,
       });
+    } else {
+      response.status(500).json({
+        message: "Internal Server Error",
+        error: "Internal Server Error",
+      });
     }
-    response.status(500).json({
-      message: "Internal Server Error",
-      error: "Internal Server Error",
-    });
   }
 };
 

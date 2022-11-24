@@ -27,11 +27,12 @@ export const getUserById = async (request, response) => {
   } catch (error) {
     if (error instanceof InvalidIdError) {
       response.status(400).json({ error: error.message });
+    } else {
+      response.status(500).json({
+        message: "Internal Server Error",
+        error: "Internal Server Error",
+      });
     }
-    response.status(500).json({
-      message: "Internal Server Error",
-      error: "Internal Server Error",
-    });
   }
 };
 
