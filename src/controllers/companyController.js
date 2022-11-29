@@ -9,7 +9,9 @@ import {
   findAllCompanies,
   findCompanyById,
   updateCompanyById,
+  deleteCompanyById as serviceDelete,
 } from "../services/companyService.js";
+// import { formatValidationErrors } from "../utils/errorFormater.js";
 
 export const getCompanies = async (request, response) => {
   try {
@@ -96,5 +98,19 @@ export const putCompanyById = async (request, response) => {
         error: "Internal Server Error",
       });
     }
+  }
+};
+
+export const deleteCompanyById = async (request, response) => {
+  try {
+    const id = request.params.companyId;
+    let companyDeleted = await serviceDelete(id);
+    console.log(companyDeleted);
+    response.status(200).json(companyDeleted);
+  } catch (error) {
+    response.status(500).json({
+      message: "Internal Server Error",
+      error: "Internal Server Error",
+    });
   }
 };

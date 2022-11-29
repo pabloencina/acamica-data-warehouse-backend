@@ -100,3 +100,14 @@ export const updateCompanyById = async (id, company) => {
     throw error;
   }
 };
+
+export const deleteCompanyById = async (id) => {
+  try {
+    const deletedCompany = await companyModel.findOne({ _id: id });
+    await companyModel.deleteOne({ _id: id });
+    return deletedCompany;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};

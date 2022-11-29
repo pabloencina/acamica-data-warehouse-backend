@@ -17,6 +17,7 @@ export const findAllContacts = async () => {
         },
       })
       .populate("company");
+    console.log(allContacts);
     return allContacts;
   } catch (error) {
     console.error(error);
