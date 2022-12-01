@@ -7,9 +7,6 @@ export const findAllContacts = async () => {
     const allContacts = await contactModel
       .find()
       .populate({
-        path: "channels",
-      })
-      .populate({
         path: "city",
         populate: {
           path: "country",
@@ -19,7 +16,6 @@ export const findAllContacts = async () => {
         },
       })
       .populate("company");
-    console.log(allContacts);
     return allContacts;
   } catch (error) {
     console.error(error);
@@ -30,7 +26,18 @@ export const findAllContacts = async () => {
 export const findContactById = async (id) => {
   if (validator.isMongoId(id)) {
     try {
-      const contactById = await contactModel.findOne({ _id: id });
+      const contactById = await contactModel
+        .findOne({ _id: id })
+        .populate({
+          path: "city",
+          populate: {
+            path: "country",
+            populate: {
+              path: "region",
+            },
+          },
+        })
+        .populate("company");
       return contactById;
     } catch (error) {
       console.error(error);

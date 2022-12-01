@@ -48,8 +48,8 @@ export const createCompany = async (company) => {
       const cityById = await cityModel.findOne({ _id: company.city });
       if (cityById) {
         const companyToSave = new companyModel(company);
-        const savedCity = await companyToSave.save();
-        return savedCity;
+        const savedCompany = await companyToSave.save();
+        return savedCompany;
       } else {
         throw new NotFoundError("City not found.");
       }

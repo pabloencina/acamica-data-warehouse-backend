@@ -22,7 +22,7 @@ export const getContacts = async (request, response) => {
 
 export const getContactById = async (request, response) => {
   try {
-    let contactById = await findContactById(request.params.userId);
+    let contactById = await findContactById(request.params.contactId);
     response.status(200).json(contactById);
   } catch (error) {
     if (error instanceof InvalidIdError) {
@@ -62,7 +62,7 @@ export const postContact = async (request, response) => {
 export const putContactById = async (request, response) => {
   try {
     const body = request.body;
-    const id = request.params.userId;
+    const id = request.params.contactId;
     let contactUpdated = await updateContactById(id, body);
     response.status(200).json(contactUpdated);
   } catch (error) {
@@ -81,7 +81,7 @@ export const putContactById = async (request, response) => {
 
 export const deleteContactById = async (request, response) => {
   try {
-    const id = request.params.userId;
+    const id = request.params.contactId;
     let contactDeleted = await serviceDelete(id);
     response.status(200).json(contactDeleted);
   } catch (error) {
