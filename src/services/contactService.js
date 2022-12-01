@@ -6,9 +6,9 @@ export const findAllContacts = async () => {
   try {
     const allContacts = await contactModel
       .find()
-      // .populate({
-      //   path: "channels",
-      // })
+      .populate({
+        path: "channels",
+      })
       .populate({
         path: "city",
         populate: {
@@ -53,11 +53,12 @@ export const createContact = async (contact) => {
 };
 
 export const updateContactById = async (id, contact) => {
-  const { name, surname, profile, password, email } = contact;
+  const { name, surname, email, position, company, region, country, city, address, interest } =
+    contact;
   try {
     await contactModel.updateOne(
       { _id: id },
-      { name, surname, profile, password, email },
+      { name, surname, email, position, company, region, country, city, address, interest },
       { runValidators: true }
     );
     return await contactModel.findOne({ _id: id });
