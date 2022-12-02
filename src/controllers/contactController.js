@@ -1,4 +1,9 @@
-import { InvalidIdError } from "../errors/errors.js";
+import {
+  AlreadyInDbError,
+  InvalidIdError,
+  NotFoundError,
+  ValidationFailedError,
+} from "../errors/errors.js";
 import {
   findAllContacts,
   findContactById,
@@ -6,7 +11,6 @@ import {
   updateContactById,
   deleteContactById as serviceDelete,
 } from "../services/contactService.js";
-import { formatValidationErrors } from "../utils/errorFormater.js";
 
 export const getContacts = async (request, response) => {
   try {
@@ -22,6 +26,7 @@ export const getContacts = async (request, response) => {
 
 export const getContactById = async (request, response) => {
   try {
+    console.log(request.params.contactId);
     let contactById = await findContactById(request.params.contactId);
     response.status(200).json(contactById);
   } catch (error) {
@@ -42,13 +47,21 @@ export const postContact = async (request, response) => {
     let contactSaved = await createContact(body);
     response.status(201).json(contactSaved);
   } catch (error) {
-    if (error.code && error.code === 11000) {
+    console.log(error);
+    if (error instanceof AlreadyInDbError) {
       response.status(409).json({
-        error: Object.keys(error.keyPattern)[0] + " is already in DB.",
+        message: error.message,
+        error: error.message,
       });
-    } else if (error._message && error._message === "Users validation failed") {
+    } else if (error instanceof ValidationFailedError || error instanceof InvalidIdError) {
       response.status(400).json({
-        errors: formatValidationErrors(error),
+        message: error.message,
+        error: error.errors,
+      });
+    } else if (error instanceof NotFoundError) {
+      response.status(404).json({
+        message: error.message,
+        error: error.errors,
       });
     } else {
       response.status(500).json({
@@ -66,9 +79,15 @@ export const putContactById = async (request, response) => {
     let contactUpdated = await updateContactById(id, body);
     response.status(200).json(contactUpdated);
   } catch (error) {
-    if (error._message && error._message === "Validation failed") {
+    if (error instanceof ValidationFailedError) {
       response.status(400).json({
-        errors: formatValidationErrors(error),
+        message: error.message,
+        error: error.errors,
+      });
+    } else if (error instanceof NotFoundError) {
+      response.status(404).json({
+        message: error.message,
+        error: error.message,
       });
     } else {
       response.status(500).json({

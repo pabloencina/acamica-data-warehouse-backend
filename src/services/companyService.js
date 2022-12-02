@@ -57,7 +57,7 @@ export const createCompany = async (company) => {
       console.error(error);
       if (error.code && error.code === 11000) {
         throw new AlreadyInDbError(Object.keys(error.keyPattern)[0] + " is already in DB.");
-      } else if (error._message && error._message === "Countries validation failed") {
+      } else if (error._message && error._message === "Companies validation failed") {
         const errors = formatValidationErrors(error);
         throw new ValidationFailedError("Validation failed", errors);
       }

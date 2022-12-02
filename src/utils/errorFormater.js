@@ -1,8 +1,8 @@
 export function formatValidationErrors(error) {
   const properties = Object.keys(error.errors);
-  const errosToReturn = {};
+  const errorToReturn = {};
   properties.forEach((property) => {
-    errosToReturn[property] = error.errors[property].message;
+    errorToReturn[property] = error.errors[property].message;
   });
-  return errosToReturn;
+  return errorToReturn;
 }
