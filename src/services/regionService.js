@@ -1,5 +1,6 @@
 import {
   AlreadyInDbError,
+  IntegrityError,
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
@@ -76,6 +77,28 @@ export const updateRegionById = async (id, region) => {
       const errors = formatValidationErrors(error);
       throw new ValidationFailedError("Validation failed", errors);
     }
+    throw error;
+  }
+};
+
+export const serviceDeleteRegionById = async (id) => {
+  try {
+    const deletedRegion = await regionModel.findOne({ _id: id });
+    if (!deletedRegion) {
+      throw new NotFoundError("Region " + id + " not found.");
+    }
+    if (deletedRegion.countries.length) {
+      throw new IntegrityError(
+        "Cannot delete region: " +
+          id +
+          ". Region has countries: " +
+          deletedRegion.countries.map((c) => c._id)
+      );
+    }
+    await regionModel.deleteOne({ _id: id });
+    return deletedRegion;
+  } catch (error) {
+    console.error(error);
     throw error;
   }
 };

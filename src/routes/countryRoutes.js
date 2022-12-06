@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+  deleteCountryById,
   getCountries,
   getCountryById,
   postCountry,
@@ -12,5 +13,6 @@ router.get("/countries", getCountries);
 router.get("/countries/:countryId", getCountryById);
 router.post("/countries", postCountry);
 router.put("/countries/:countryId", putCountryById);
+router.delete("/countries/:countryId", deleteCountryById);
 
 export default router;

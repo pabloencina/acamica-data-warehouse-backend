@@ -1,5 +1,6 @@
 import {
   AlreadyInDbError,
+  IntegrityError,
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
@@ -8,6 +9,7 @@ import {
   createCity,
   findAllCities,
   findCityById,
+  serviceDeleteCityById,
   updateCityById,
 } from "../services/cityService.js";
 
@@ -87,6 +89,32 @@ export const putCityById = async (request, response) => {
       });
     } else if (error instanceof NotFoundError) {
       response.status(404).json({
+        message: error.message,
+        error: error.message,
+      });
+    } else {
+      response.status(500).json({
+        message: "Internal Server Error",
+        error: "Internal Server Error",
+      });
+    }
+  }
+};
+
+export const deleteCityById = async (request, response) => {
+  try {
+    const id = request.params.cityId;
+    let cityDeleted = await serviceDeleteCityById(id);
+    console.log(cityDeleted);
+    response.status(200).json(cityDeleted);
+  } catch (error) {
+    if (error instanceof NotFoundError) {
+      response.status(404).json({
+        message: error.message,
+        error: error.message,
+      });
+    } else if (error instanceof IntegrityError) {
+      response.status(409).json({
         message: error.message,
         error: error.message,
       });

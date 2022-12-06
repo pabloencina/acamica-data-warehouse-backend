@@ -1,11 +1,13 @@
 import {
   AlreadyInDbError,
+  IntegrityError,
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
 } from "../errors/errors.js";
 import cityModel from "../models/cityModel.js";
 import companyModel from "../models/companyModel.js";
+import contactModel from "../models/contactModel.js";
 import { formatValidationErrors } from "../utils/errorFormater.js";
 
 import validator from "validator";
@@ -101,9 +103,21 @@ export const updateCompanyById = async (id, company) => {
   }
 };
 
-export const deleteCompanyById = async (id) => {
+export const serviceDeleteCompanyById = async (id) => {
   try {
     const deletedCompany = await companyModel.findOne({ _id: id });
+    if (!deletedCompany) {
+      throw new NotFoundError("Company " + id + " not found.");
+    }
+    const contactsByCompany = await contactModel.find({ company: id });
+    if (contactsByCompany.length) {
+      throw new IntegrityError(
+        "Cannot delete company: " +
+          id +
+          ". Company refers to contacts: " +
+          contactsByCompany.map((c) => c._id)
+      );
+    }
     await companyModel.deleteOne({ _id: id });
     return deletedCompany;
   } catch (error) {

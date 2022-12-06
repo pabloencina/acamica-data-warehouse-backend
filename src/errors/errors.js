@@ -22,3 +22,10 @@ export class ValidationFailedError extends Error {
     this.errors = errors;
   }
 }
+
+export class IntegrityError extends Error {
+  constructor(message, errors) {
+    super(message);
+    this.errors = errors;
+  }
+}

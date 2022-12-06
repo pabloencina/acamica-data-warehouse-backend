@@ -32,11 +32,8 @@ export const findAllContacts = async () => {
 };
 
 export const findContactById = async (id) => {
-  console.log(id);
-  console.log(validator.isMongoId(id));
   if (validator.isMongoId(id)) {
     try {
-      console.log(contactModel);
       const contactById = await contactModel
         .findOne({ _id: id })
         .populate({
@@ -49,7 +46,6 @@ export const findContactById = async (id) => {
           },
         })
         .populate("company");
-      console.log(contactById);
       return contactById;
     } catch (error) {
       console.error(error);

@@ -1,5 +1,6 @@
 import {
   AlreadyInDbError,
+  IntegrityError,
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
@@ -8,6 +9,7 @@ import {
   createRegion,
   findAllRegions,
   findRegionById,
+  serviceDeleteRegionById,
   updateRegionById,
 } from "../services/regionService.js";
 
@@ -80,6 +82,31 @@ export const putRegionById = async (request, response) => {
       response.status(404).json({
         message: error.message,
         error: error.errors,
+      });
+    } else {
+      response.status(500).json({
+        message: "Internal Server Error",
+        error: "Internal Server Error",
+      });
+    }
+  }
+};
+
+export const deleteRegionById = async (request, response) => {
+  try {
+    const id = request.params.regionId;
+    let regionDeleted = await serviceDeleteRegionById(id);
+    response.status(200).json(regionDeleted);
+  } catch (error) {
+    if (error instanceof NotFoundError) {
+      response.status(404).json({
+        message: error.message,
+        error: error.message,
+      });
+    } else if (error instanceof IntegrityError) {
+      response.status(409).json({
+        message: error.message,
+        error: error.message,
       });
     } else {
       response.status(500).json({

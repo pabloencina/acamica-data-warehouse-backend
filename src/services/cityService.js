@@ -1,11 +1,14 @@
 import {
   AlreadyInDbError,
+  IntegrityError,
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
 } from "../errors/errors.js";
 import cityModel from "../models/cityModel.js";
 import countryModel from "../models/countryModel.js";
+import companyModel from "../models/companyModel.js";
+import contactModel from "../models/contactModel.js";
 import { formatValidationErrors } from "../utils/errorFormater.js";
 
 import validator from "validator";
@@ -82,6 +85,38 @@ export const updateCityById = async (id, city) => {
       const errors = formatValidationErrors(error);
       throw new ValidationFailedError("Validation failed", errors);
     }
+    throw error;
+  }
+};
+
+export const serviceDeleteCityById = async (id) => {
+  try {
+    const deletedCity = await cityModel.findOne({ _id: id });
+    if (!deletedCity) {
+      throw new NotFoundError("City " + id + " not found.");
+    }
+    const contactsByCity = await contactModel.find({ city: id });
+    if (contactsByCity.length) {
+      throw new IntegrityError(
+        "Cannot delete city: " +
+          id +
+          ". City refers to contacts: " +
+          contactsByCity.map((c) => c._id)
+      );
+    }
+    const companiesByCity = await companyModel.find({ city: id });
+    if (companiesByCity.length) {
+      throw new IntegrityError(
+        "Cannot delete city: " +
+          id +
+          ". City refers to companies: " +
+          companiesByCity.map((c) => c._id)
+      );
+    }
+    await cityModel.deleteOne({ _id: id });
+    return deletedCity;
+  } catch (error) {
+    console.error(error);
     throw error;
   }
 };

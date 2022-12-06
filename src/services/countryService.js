@@ -1,5 +1,6 @@
 import {
   AlreadyInDbError,
+  IntegrityError,
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
@@ -85,6 +86,28 @@ export const updateCountryById = async (id, country) => {
       const errors = formatValidationErrors(error);
       throw new ValidationFailedError("Validation failed", errors);
     }
+    throw error;
+  }
+};
+
+export const serviceDeleteCountryById = async (id) => {
+  try {
+    const deletedCountry = await countryModel.findOne({ _id: id });
+    if (!deletedCountry) {
+      throw new NotFoundError("Country " + id + " not found.");
+    }
+    if (deletedCountry.cities.length) {
+      throw new IntegrityError(
+        "Cannot delete country: " +
+          id +
+          ". Country has cities: " +
+          deletedCountry.cities.map((c) => c._id)
+      );
+    }
+    await countryModel.deleteOne({ _id: id });
+    return deletedCountry;
+  } catch (error) {
+    console.error(error);
     throw error;
   }
 };

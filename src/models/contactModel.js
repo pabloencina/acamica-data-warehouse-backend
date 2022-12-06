@@ -65,7 +65,6 @@ export const contactsSchema = new Schema(
     interest: {
       type: Number,
       required: true,
-      unique: true,
       trim: true,
     },
     done: Boolean,

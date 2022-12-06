@@ -1,17 +1,17 @@
 import {
   AlreadyInDbError,
+  IntegrityError,
   InvalidIdError,
   NotFoundError,
   ValidationFailedError,
 } from "../errors/errors.js";
 import {
   createCompany,
+  serviceDeleteCompanyById,
   findAllCompanies,
   findCompanyById,
   updateCompanyById,
-  deleteCompanyById as serviceDelete,
 } from "../services/companyService.js";
-// import { formatValidationErrors } from "../utils/errorFormater.js";
 
 export const getCompanies = async (request, response) => {
   try {
@@ -102,15 +102,28 @@ export const putCompanyById = async (request, response) => {
 };
 
 export const deleteCompanyById = async (request, response) => {
+  console.log("here");
   try {
     const id = request.params.companyId;
-    let companyDeleted = await serviceDelete(id);
+    let companyDeleted = await serviceDeleteCompanyById(id);
     console.log(companyDeleted);
     response.status(200).json(companyDeleted);
   } catch (error) {
-    response.status(500).json({
-      message: "Internal Server Error",
-      error: "Internal Server Error",
-    });
+    if (error instanceof NotFoundError) {
+      response.status(404).json({
+        message: error.message,
+        error: error.message,
+      });
+    } else if (error instanceof IntegrityError) {
+      response.status(409).json({
+        message: error.message,
+        error: error.message,
+      });
+    } else {
+      response.status(500).json({
+        message: "Internal Server Error",
+        error: "Internal Server Error",
+      });
+    }
   }
 };
