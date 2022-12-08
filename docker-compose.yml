@@ -11,6 +11,7 @@ services:
       - PORT=$PORT
       - MONGO_URL=$MONGO_URL
       - DB_NAME=$DB_NAME
+      - JWT_SECRET=$JWT_SECRET
   mongo:
     image: mongo:6.0.2
     container_name: mongo

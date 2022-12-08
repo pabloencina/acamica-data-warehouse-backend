@@ -1,15 +1,16 @@
-import * as dotenv from "dotenv";
-dotenv.config();
-import express from "express";
 import bodyParser from "body-parser";
+import * as dotenv from "dotenv";
+import express from "express";
+dotenv.config();
 
-import loginRoutes from "./routes/loginRoutes.js";
-import userRoutes from "./routes/userRoutes.js";
-import regionRoutes from "./routes/regionRoutes.js";
-import countryRoutes from "./routes/countryRoutes.js";
 import cityRoutes from "./routes/cityRoutes.js";
 import companyRoutes from "./routes/companyRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
+import countryRoutes from "./routes/countryRoutes.js";
+import loginRoutes from "./routes/loginRoutes.js";
+import regionRoutes from "./routes/regionRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import { expressJwtHandler } from "./security/expressJwtHandler.js";
 
 const app = express();
 
@@ -30,6 +31,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(expressJwtHandler);
 
 app.use(loginRoutes);
 app.use(userRoutes);

@@ -50,7 +50,6 @@ export const postCity = async (request, response) => {
     let countrySaved = await createCity(body);
     response.status(201).json(countrySaved);
   } catch (error) {
-    console.log(error);
     if (error instanceof AlreadyInDbError) {
       response.status(409).json({
         message: error.message,
@@ -105,7 +104,6 @@ export const deleteCityById = async (request, response) => {
   try {
     const id = request.params.cityId;
     let cityDeleted = await serviceDeleteCityById(id);
-    console.log(cityDeleted);
     response.status(200).json(cityDeleted);
   } catch (error) {
     if (error instanceof NotFoundError) {

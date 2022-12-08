@@ -23,6 +23,18 @@ export class ValidationFailedError extends Error {
   }
 }
 
+export class RequiredFieldsError extends Error {
+  constructor(message) {
+    super(message);
+  }
+}
+
+export class InvalidCredentialsError extends Error {
+  constructor(message) {
+    super(message);
+  }
+}
+
 export class IntegrityError extends Error {
   constructor(message, errors) {
     super(message);

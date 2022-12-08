@@ -26,7 +26,6 @@ export const getContacts = async (request, response) => {
 
 export const getContactById = async (request, response) => {
   try {
-    console.log(request.params.contactId);
     let contactById = await findContactById(request.params.contactId);
     response.status(200).json(contactById);
   } catch (error) {
@@ -47,7 +46,6 @@ export const postContact = async (request, response) => {
     let contactSaved = await createContact(body);
     response.status(201).json(contactSaved);
   } catch (error) {
-    console.log(error);
     if (error instanceof AlreadyInDbError) {
       response.status(409).json({
         message: error.message,

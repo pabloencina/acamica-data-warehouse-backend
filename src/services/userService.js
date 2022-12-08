@@ -1,4 +1,4 @@
-import { InvalidIdError } from "../errors/errors.js";
+import { InvalidCredentialsError, InvalidIdError, RequiredFieldsError } from "../errors/errors.js";
 import usersModel from "../models/userModel.js";
 
 import validator from "validator";
@@ -24,6 +24,23 @@ export const findUserById = async (id) => {
     }
   } else {
     throw new InvalidIdError("The id is not valid");
+  }
+};
+
+export const findUserByEmailAndPassword = async (email, password) => {
+  if (email && password) {
+    try {
+      const foundUser = await usersModel.findOne({ email, password });
+      if (foundUser) {
+        return foundUser;
+      }
+      throw new InvalidCredentialsError("Invalid credentials");
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  } else {
+    throw new RequiredFieldsError("Email and password are required fields");
   }
 };
 

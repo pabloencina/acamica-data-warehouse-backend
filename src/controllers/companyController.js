@@ -50,7 +50,6 @@ export const postCompany = async (request, response) => {
     let countrySaved = await createCompany(body);
     response.status(201).json(countrySaved);
   } catch (error) {
-    console.log(error);
     if (error instanceof AlreadyInDbError) {
       response.status(409).json({
         message: error.message,
@@ -102,11 +101,9 @@ export const putCompanyById = async (request, response) => {
 };
 
 export const deleteCompanyById = async (request, response) => {
-  console.log("here");
   try {
     const id = request.params.companyId;
     let companyDeleted = await serviceDeleteCompanyById(id);
-    console.log(companyDeleted);
     response.status(200).json(companyDeleted);
   } catch (error) {
     if (error instanceof NotFoundError) {
