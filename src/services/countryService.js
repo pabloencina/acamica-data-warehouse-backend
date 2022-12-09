@@ -104,6 +104,11 @@ export const serviceDeleteCountryById = async (id) => {
           deletedCountry.cities.map((c) => c._id)
       );
     }
+
+    const region = await regionModel.findOne({ _id: deletedCountry.region });
+    const regionCountries = region.countries.filter((c) => !c._id.equals(id));
+    await regionModel.updateOne({ _id: deletedCountry.region }, { countries: regionCountries });
+
     await countryModel.deleteOne({ _id: id });
     return deletedCountry;
   } catch (error) {

@@ -113,6 +113,11 @@ export const serviceDeleteCityById = async (id) => {
           companiesByCity.map((c) => c._id)
       );
     }
+
+    const country = await countryModel.findOne({ _id: deletedCity.country });
+    const countryCities = country.cities.filter((c) => !c._id.equals(id));
+    await countryModel.updateOne({ _id: deletedCity.country }, { cities: countryCities });
+
     await cityModel.deleteOne({ _id: id });
     return deletedCity;
   } catch (error) {
