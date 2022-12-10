@@ -53,7 +53,7 @@ Access to the mongo database  with a client like Compass. The database has no pa
 
 Enter Postman and go to the menu and select FILE / IMPORT and click on the "Upload File:" button.
 
-Navigate inside the local folder you created and select the file "acamica-data-warehouse.postman-collection.json"
+Navigate inside the local folder you created and select the file [acamica-data-warehouse.postman-collection.json](https://raw.githubusercontent.com/pabloencina/acamica-data-warehouse-backend/main/data-warehouse.postman_collection.json)
 
 This will create a collection in Postman with the name API Delilah-resto, where you can find different Requests to test the API.
 

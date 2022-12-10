@@ -4985,7 +4985,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"surname\": \"Rubiolini\"   \n}",
+							"raw": "{\n    \"city\": \"637bd9253b5bb871e33299f8\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5082,6 +5082,84 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"_id\": \"6392407c0bf3dc28c2b11a0b\",\n    \"name\": \"Indiana\",\n    \"surname\": \"Rubiolini\",\n    \"email\": \"insdfgdyM@gmail.com\",\n    \"position\": \"Odontología\",\n    \"company\": \"637e87dd3b5bb871e3329b1d\",\n    \"city\": \"637bd9253b5bb871e33299f7\",\n    \"address\": \"Belgrano 677\",\n    \"channels\": [\n        {\n            \"channel\": \"TWITTER\",\n            \"account\": \"jkljñljljl\",\n            \"preference\": \"NO_PREFERENCE\",\n            \"_id\": \"6392406cccd6a7edc9fcae9d\"\n        },\n        {\n            \"channel\": \"INSTAGRAM\",\n            \"account\": \"jkljñljljllllljjjjjjjjjjjjjjjj\",\n            \"preference\": \"DO_NOT_DISTURB\",\n            \"_id\": \"63924075ccd6a7edc9fcae9e\"\n        }\n    ],\n    \"interest\": 50,\n    \"createdAt\": \"2022-12-08T19:52:28.518Z\",\n    \"updatedAt\": \"2022-12-10T16:31:33.112Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"city\": \"637bd9253b5bb871e33299f8\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/contacts/6392407c0bf3dc28c2b11a0b",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"contacts",
+										"6392407c0bf3dc28c2b11a0b"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-OxFEqmpmg3eecvmzh/U0NIYqtWw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 16:45:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"City not found.\",\n    \"error\": \"City not found.\"\n}"
 						}
 					]
 				},
