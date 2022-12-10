@@ -67,7 +67,6 @@ export const createContact = async (contact) => {
 
   try {
     const cityById = await cityModel.findOne({ _id: contact.city });
-
     if (!cityById) {
       throw new NotFoundError("City not found.");
     }
@@ -92,27 +91,31 @@ export const createContact = async (contact) => {
   }
 };
 
-// try {
-//   const contactToSave = new contactModel(contact);
-//   const savedContact = await contactToSave.save();
-//   return savedContact;
-// } catch (error) {
-//   console.error(error);
-//   throw error;
-// }
-
 export const updateContactById = async (id, contact) => {
-  const { name, surname, email, position, company, region, country, city, address, interest } =
-    contact;
+  const { name, surname, email, position, company, city, address, interest } = contact;
   try {
+    const cityById = await cityModel.findOne({ _id: city });
+    if (!cityById) {
+      throw new NotFoundError("City not found.");
+    }
+
+    const companyById = await companyModel.findOne({ _id: company });
+    if (!companyById) {
+      throw new NotFoundError("Company not found.");
+    }
     await contactModel.updateOne(
       { _id: id },
-      { name, surname, email, position, company, region, country, city, address, interest },
+      { name, surname, email, position, company, city, address, interest },
       { runValidators: true }
     );
     return await contactModel.findOne({ _id: id });
   } catch (error) {
-    console.error(error);
+    if (error.code && error.code === 11000) {
+      throw new AlreadyInDbError(Object.keys(error.keyPattern)[0] + " is already in DB.");
+    } else if (error._message && error._message === "Validation failed") {
+      const errors = formatValidationErrors(error);
+      throw new ValidationFailedError("Validation failed", errors);
+    }
     throw error;
   }
 };

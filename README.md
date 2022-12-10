@@ -153,6 +153,18 @@ Make LOGIN (necessary to execute the rest)
 
 * Delete a contact
 
+## Technologies
+
+* Node.js 16.18.1
+
+* Express 4.17.2
+
+* Mongo 6.0.2
+
+## Credits
+
+* Special thanks to [santiagocerrutti](https://github.com/santiagocerrutti) for his support in all the development process.
+
 ## Author
 
 Pablo David Encina

@@ -1,0 +1,5237 @@
+{
+	"info": {
+		"_postman_id": "b20b2ba8-81ac-44ab-b0bf-75925f4e0c18",
+		"name": "data-warehouse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15359528"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"cachi@hotmail.com\",\n    \"password\":\"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/login",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"encina.pd@gmail.com\",\n    \"password\":\"1235\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/login",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-dBEoW0UmTF+EGUMaprEp9/8zNNA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 15:48:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid credentials\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"cachi@hotmail.com\",\n    \"password\":\"123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/login",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "241"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f1-VM3F1jI+WCjuamYl8J2O8K5yeC0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 15:20:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2FuZGVsYSIsInN1cm5hbWUiOiJSdWJpb2xvIiwiZW1haWwiOiJjYWNoaUBob3RtYWlsLmNvbSIsInByb2ZpbGUiOiJBRE1JTiIsImlhdCI6MTY3MDY4NTY1MiwiZXhwIjoxNjcwNjkyODUyfQ.5ZesEwm394p8C834RlLCgtKaxBlCCEnAekYddcJI9MQ\""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List of all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/users",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/users",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "698"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2ba-vk5K1zrVqF6IXF/VEaXpjEBFWnk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 18:24:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6355104b683b7bccccf81a83\",\n        \"name\": \"Roberto\",\n        \"surname\": \"Diaz\",\n        \"email\": \"indyM@gmail.com\",\n        \"password\": \"787451174\",\n        \"profile\": \"ADMIN\",\n        \"createdAt\": \"2022-10-23T09:58:35.064Z\",\n        \"updatedAt\": \"2022-11-01T09:59:54.604Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"635eea4812b2930761d88bdc\",\n        \"name\": \"Esteban\",\n        \"surname\": \"Panoch\",\n        \"email\": \"esteban_pan@hotmail.com\",\n        \"password\": \"sdfsdfsfsfsdfs\",\n        \"profile\": \"BASIC\",\n        \"createdAt\": \"2022-10-30T21:19:04.492Z\",\n        \"updatedAt\": \"2022-10-31T21:32:33.694Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6360108c71ccc7e4dbd0d420\",\n        \"name\": \"Carlos\",\n        \"surname\": \"Peralta\",\n        \"email\": \"peralt_carlos@gmail.com\",\n        \"password\": \"sdfsdfsdfdfssdf\",\n        \"profile\": \"BASIC\",\n        \"createdAt\": \"2022-10-31T18:14:36.887Z\",\n        \"updatedAt\": \"2022-10-31T18:14:36.887Z\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/users",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "893"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 18:27:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error</title>\n    </head>\n    <body>\n        <pre>UnauthorizedError: invalid signature\n            <br> &nbsp; &nbsp;at /app/node_modules/express-jwt/lib/index.js:105:22\n            <br> &nbsp; &nbsp;at /app/node_modules/jsonwebtoken/verify.js:133:14\n            <br> &nbsp; &nbsp;at getSecret (/app/node_modules/jsonwebtoken/verify.js:90:14)\n            <br> &nbsp; &nbsp;at Object.module.exports [as verify] (/app/node_modules/jsonwebtoken/verify.js:94:10)\n            <br> &nbsp; &nbsp;at verifyToken (/app/node_modules/express-jwt/lib/index.js:103:13)\n            <br> &nbsp; &nbsp;at fn (/app/node_modules/async/lib/async.js:746:34)\n            <br> &nbsp; &nbsp;at /app/node_modules/async/lib/async.js:1213:16\n            <br> &nbsp; &nbsp;at /app/node_modules/async/lib/async.js:166:37\n            <br> &nbsp; &nbsp;at /app/node_modules/async/lib/async.js:706:43\n            <br> &nbsp; &nbsp;at /app/node_modules/async/lib/async.js:167:37\n        </pre>\n    </body>\n</html>"
+						},
+						{
+							"name": "403",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/users",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-MC/YfYYOOj/ieVqLEZ9Q5vzQ0vk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 18:22:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Not authorized to use this service\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create an user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pedro\",\n    \"surname\": \"Ramirez\",\n    \"email\": \"pedro.ram@gmail.com\",\n    \"profile\": \"ADMIN\",\n    \"password\": \"020202SC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/users",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"name\": \"Santiago\",\n        \"surname\": \"Cerrutti\",\n        \"email\": \"santiago.Cerr@gmail.com\",\n        \"profile\": \"ADMIN\",\n        \"password\": \"020202SC\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/users",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "233"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e9-hWgHqSUtZCHPb1XN+FNOIgMgvDo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 18:24:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Santiago\",\n    \"surname\": \"Cerrutti\",\n    \"email\": \"santiago.Cerr@gmail.com\",\n    \"password\": \"020202SC\",\n    \"profile\": \"ADMIN\",\n    \"_id\": \"63922be16fe342a9d4d87a5f\",\n    \"createdAt\": \"2022-12-08T18:24:33.305Z\",\n    \"updatedAt\": \"2022-12-08T18:24:33.305Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"name\": \"P\",\n        \"surname\": \"C\",\n        \"email\": \"c\",\n        \"profile\": \"BIC\",\n        \"password\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "393"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"189-HSaGoiiZJQghaDWh4DKjoLCii6E\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Oct 2022 19:42:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": {\n        \"name\": \"Path `name` (`P`) is shorter than the minimum allowed length (3).\",\n        \"surname\": \"Path `surname` (`C`) is shorter than the minimum allowed length (2).\",\n        \"email\": \"Path `email` (`c`) is shorter than the minimum allowed length (10).\",\n        \"password\": \"Path `password` (`1`) is shorter than the minimum allowed length (8).\",\n        \"profile\": \"`BIC` is not a valid enum value for path `profile`.\"\n    }\n}"
+						},
+						{
+							"name": "403",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"name\": \"Santiago\",\n        \"surname\": \"Cerrutti\",\n        \"email\": \"santiago.Cerr@gmail.com\",\n        \"profile\": \"BASIC\",\n        \"password\": \"020202SC\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/users",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-MC/YfYYOOj/ieVqLEZ9Q5vzQ0vk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 18:23:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Not authorized to use this service\"\n}"
+						},
+						{
+							"name": "409",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"name\": \"Santiago\",\n        \"surname\": \"Cerrutti\",\n        \"email\": \"santiago.Cerr@gmail.com\",\n        \"profile\": \"BASIC\",\n        \"password\": \"020202SC\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-wXRBRqIIBsNwHDqhXP8h+g9WRYA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Oct 2022 19:44:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"email is already in DB.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/users/6351a06d958df8eb1fd1259a",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"users",
+								"6351a06d958df8eb1fd1259a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3500/users/6351a06d958df8eb1fd1259a",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"users",
+										"6351a06d958df8eb1fd1259a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "125"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7d-IpXCBi+Z2yUtqFU+MsqZER3vtwg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Oct 2022 19:47:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6351a06d958df8eb1fd1259a\",\n    \"name\": \"Santiago\",\n    \"surname\": \"Cerrutti\",\n    \"email\": \"santiago.Cerr@gmail.com\",\n    \"profile\": \"BASIC\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Modify an user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Pedro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/users/637b00aa99bd73887fc82538",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"users",
+								"637b00aa99bd73887fc82538"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Santiago\",\n  \"surname\": \"Cerrutti\",\n  \"email\": \"santiago.cerr@gmail.com\",\n  \"password\": \"020202SC\",\n  \"profile\": \"BASIC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/users/6351aa51ad7af6881100dc54",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"users",
+										"6351aa51ad7af6881100dc54"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "893"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 16:20:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error</title>\n    </head>\n    <body>\n        <pre>UnauthorizedError: invalid signature\n            <br> &nbsp; &nbsp;at /app/node_modules/express-jwt/lib/index.js:105:22\n            <br> &nbsp; &nbsp;at /app/node_modules/jsonwebtoken/verify.js:133:14\n            <br> &nbsp; &nbsp;at getSecret (/app/node_modules/jsonwebtoken/verify.js:90:14)\n            <br> &nbsp; &nbsp;at Object.module.exports [as verify] (/app/node_modules/jsonwebtoken/verify.js:94:10)\n            <br> &nbsp; &nbsp;at verifyToken (/app/node_modules/express-jwt/lib/index.js:103:13)\n            <br> &nbsp; &nbsp;at fn (/app/node_modules/async/lib/async.js:746:34)\n            <br> &nbsp; &nbsp;at /app/node_modules/async/lib/async.js:1213:16\n            <br> &nbsp; &nbsp;at /app/node_modules/async/lib/async.js:166:37\n            <br> &nbsp; &nbsp;at /app/node_modules/async/lib/async.js:706:43\n            <br> &nbsp; &nbsp;at /app/node_modules/async/lib/async.js:167:37\n        </pre>\n    </body>\n</html>"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Pedro\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/users/637b00aa99bd73887fc82538",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"users",
+										"637b00aa99bd73887fc82538"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "230"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e6-JNgQ8ZTicR8LKfkKAbwxVAstWWc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 16:24:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"637b00aa99bd73887fc82538\",\n    \"name\": \"Pedro\",\n    \"surname\": \"Cerrutti\",\n    \"email\": \"santiago.cerr@gmail.com\",\n    \"password\": \"00001234\",\n    \"profile\": \"BASIC\",\n    \"createdAt\": \"2022-11-21T04:38:02.022Z\",\n    \"updatedAt\": \"2022-12-10T16:24:25.991Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete an user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/users/6394b30677afaddf29cc4770",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"users",
+								"6394b30677afaddf29cc4770"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/users/6394b30677afaddf29cc4770",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"users",
+										"6394b30677afaddf29cc4770"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "225"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e1-e2GIuwI3JXEo05FfBZ9P/I3yYH0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 16:26:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6394b30677afaddf29cc4770\",\n    \"name\": \"Pedro\",\n    \"surname\": \"Ramirez\",\n    \"email\": \"pedro.ram@gmail.com\",\n    \"password\": \"020202SC\",\n    \"profile\": \"ADMIN\",\n    \"createdAt\": \"2022-12-10T16:25:42.963Z\",\n    \"updatedAt\": \"2022-12-10T16:25:42.963Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2FuZGVsYSIsInN1cm5hbWUiOiJSdWJpb2xvIiwiZW1haWwiOiJjYWNoaUBob3RtYWlsLmNvbSIsInByb2ZpbGUiOiJBRE1JTiIsImlhdCI6MTY3MDY4OTMzNywiZXhwIjoxNjcwNjk2NTM3fQ.UFp9Z1egsqFsYYQHI51alE-mP2p8yoW1gQoLiBkyU8A",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Regions",
+			"item": [
+				{
+					"name": "List of all regions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/regions",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"regions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3500/regions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"regions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-OWT+qdBJfNiTyXl+lQvfleN77eI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Nov 2022 21:51:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"63639a24dcce370c91594b1c\",\n        \"name\": \"Sudamerica\",\n        \"countries\": [\n            {\n                \"_id\": \"6363cfcbdcce370c91594b24\",\n                \"name\": \"Argentina\",\n                \"cities\": [\n                    {\n                        \"_id\": \"63640997dcce370c91594b40\",\n                        \"name\": \"Cordoba\"\n                    }\n                ]\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a region",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Sudamerica\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/regions",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"regions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Centroamérica\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/regions",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"regions"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "159"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9f-pnDgW6z5c+V9bZleWp0X5ZRA1Ws\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Nov 2022 22:00:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Centroamérica\",\n    \"countries\": [],\n    \"_id\": \"63682e66ec6a9f31a38d9613\",\n    \"createdAt\": \"2022-11-06T22:00:06.201Z\",\n    \"updatedAt\": \"2022-11-06T22:00:06.201Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a region by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/regions/637af36a99bd73887fc82534",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"regions",
+								"637af36a99bd73887fc82534"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3500/regions/63639a24dcce370c91594b1c",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"regions",
+										"63639a24dcce370c91594b1c"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "185"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b9-JBQ+LxL4xlNbeASH9pMqzsj8s6o\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Nov 2022 22:02:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"63639a24dcce370c91594b1c\",\n    \"name\": \"Sudamerica\",\n    \"countries\": [\n        {\n            \"_id\": \"6363cfcbdcce370c91594b24\",\n            \"name\": \"Argentina\",\n            \"cities\": [\n                {\n                    \"_id\": \"63640997dcce370c91594b40\",\n                    \"name\": \"Cordoba\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Modify a region",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Latinoamérica\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:3500/regions/63639a24dcce370c91594b1c",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"regions",
+								"63639a24dcce370c91594b1c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Latinoamérica\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3500/regions/63639a24dcce370c91594b1c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"regions",
+										"63639a24dcce370c91594b1c"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8a-ZSVZ5HP/R/Dv0vd4ypM3DmHNlb4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Nov 2022 22:05:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"63639a24dcce370c91594b1c\",\n    \"name\": \"Latinoamérica\",\n    \"countries\": [\n        \"6363cfcbdcce370c91594b24\"\n    ],\n    \"updatedAt\": \"2022-11-06T22:05:37.803Z\"\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Latinoamérica\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3500/regions/63639a24dcce370c91594b1d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"regions",
+										"63639a24dcce370c91594b1d"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40-nQGyJT3PAQOuCXKZNqcpO5sUj5E\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Nov 2022 03:29:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"region with id: 63639a24dcce370c91594b1d not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a region",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/regions/639388f50bf3dc28c2b11e2b",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"regions",
+								"639388f50bf3dc28c2b11e2b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "409",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/regions/63639a24dcce370c91594b1c",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"regions",
+										"63639a24dcce370c91594b1c"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "313"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"139-ZvocFacmLTdBwnuJKdcGNvI1cUw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:32:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cannot delete region: 63639a24dcce370c91594b1c. Region has countries: 6363cfcbdcce370c91594b24,63683e05f1a237772c40ebee,636849a4f966d556e94e70f0\",\n    \"error\": \"Cannot delete region: 63639a24dcce370c91594b1c. Region has countries: 6363cfcbdcce370c91594b24,63683e05f1a237772c40ebee,636849a4f966d556e94e70f0\"\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/regions/63639a24dcce370c91594b1d",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"regions",
+										"63639a24dcce370c91594b1d"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6d-z6IOdTp3Xc3P6MPL+CZxwNhNTB8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:32:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Region 63639a24dcce370c91594b1d not found.\",\n    \"error\": \"Region 63639a24dcce370c91594b1d not found.\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/regions/63682e66ec6a9f31a38d9613",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"regions",
+										"63682e66ec6a9f31a38d9613"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "159"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9f-rTpV29X2YhpPIdbkjCDJub8TsHg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:33:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"63682e66ec6a9f31a38d9613\",\n    \"name\": \"Centroamérica\",\n    \"countries\": [],\n    \"createdAt\": \"2022-11-06T22:00:06.201Z\",\n    \"updatedAt\": \"2022-11-06T22:00:06.201Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2FuZGVsYSIsInN1cm5hbWUiOiJSdWJpb2xvIiwiZW1haWwiOiJjYWNoaUBob3RtYWlsLmNvbSIsInByb2ZpbGUiOiJBRE1JTiIsImlhdCI6MTY3MDY4NTY1MiwiZXhwIjoxNjcwNjkyODUyfQ.5ZesEwm394p8C834RlLCgtKaxBlCCEnAekYddcJI9MQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Countries",
+			"item": [
+				{
+					"name": "List of all countries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/countries",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3500/countries",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"countries"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "443"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1bb-mWhrlqNEwX9HMOoyM6EvdlgTsnE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Nov 2022 23:08:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6363cfcbdcce370c91594b24\",\n        \"name\": \"Argentina\",\n        \"cities\": [\n            {\n                \"_id\": \"63640997dcce370c91594b40\",\n                \"name\": \"Cordoba\"\n            }\n        ]\n    },\n    {\n        \"_id\": \"63683e05f1a237772c40ebee\",\n        \"name\": \"Bolivia\",\n        \"cities\": [],\n        \"region\": {\n            \"_id\": \"63639a24dcce370c91594b1c\",\n            \"name\": \"Latinoamérica\",\n            \"countries\": [\n                \"6363cfcbdcce370c91594b24\",\n                \"63683e05f1a237772c40ebee\"\n            ],\n            \"updatedAt\": \"2022-11-06T23:06:45.639Z\"\n        },\n        \"createdAt\": \"2022-11-06T23:06:45.635Z\",\n        \"updatedAt\": \"2022-11-06T23:08:26.649Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a country",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Montevideo\",\n    \"region\": \"636849a4f966d556e94e70f0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:3500/countries",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Brasil\",\n    \"region\": \"63639a24dcce370c91594b1c\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3500/countries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"countries"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "184"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b8-WRFwnAX6OXaqxp68Qm9EugAV5Vs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Nov 2022 22:50:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Brasil\",\n    \"cities\": [],\n    \"region\": \"63639a24dcce370c91594b1c\",\n    \"_id\": \"63683a48a68f548191f40e09\",\n    \"createdAt\": \"2022-11-06T22:50:48.808Z\",\n    \"updatedAt\": \"2022-11-06T22:50:48.808Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"region\": \"63639a24dcce370c91594b1c\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3500/countries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"countries"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-1i3T7+I70+emLLxc7E0GDzr+ot8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Nov 2022 22:51:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": {\n        \"name\": \"Path `name` is required.\"\n    }\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Uruguay\",\n    \"region\": \"63639a24dcc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3500/countries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"countries"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f-WqMnViZERBh4jACTLF+OBeArIh4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Nov 2022 23:53:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Region not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a country by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/countries/637bd8643b5bb871e33299e0",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"countries",
+								"637bd8643b5bb871e33299e0"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/countries/637bd8643b5bb871e33299e0",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"countries",
+										"637bd8643b5bb871e33299e0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "718"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2ce-K/a2C5QtcO8KYuBczPOIx3JHTw8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 16:28:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"637bd8643b5bb871e33299e0\",\n    \"name\": \"Argentina\",\n    \"cities\": [\n        {\n            \"_id\": \"637bd9253b5bb871e33299f7\",\n            \"name\": \"Neuquen\",\n            \"country\": \"637bd8643b5bb871e33299e0\",\n            \"createdAt\": \"2022-11-21T20:01:41.904Z\",\n            \"updatedAt\": \"2022-11-21T20:01:41.904Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"637bd92d3b5bb871e33299fb\",\n            \"name\": \"Cordoba\",\n            \"country\": \"637bd8643b5bb871e33299e0\",\n            \"createdAt\": \"2022-11-21T20:01:49.382Z\",\n            \"updatedAt\": \"2022-11-21T20:01:49.382Z\",\n            \"__v\": 0\n        }\n    ],\n    \"region\": {\n        \"_id\": \"637bd8073b5bb871e33299dc\",\n        \"name\": \"Sudamerica\",\n        \"countries\": [\n            \"637bd8643b5bb871e33299e0\",\n            \"637bd8823b5bb871e33299e6\"\n        ],\n        \"createdAt\": \"2022-11-21T19:56:55.041Z\",\n        \"updatedAt\": \"2022-11-21T19:58:58.097Z\",\n        \"__v\": 0\n    },\n    \"createdAt\": \"2022-11-21T19:58:28.639Z\",\n    \"updatedAt\": \"2022-11-21T20:01:49.384Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Modify a country",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Peru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:3500/countries/63683e05f1a237772c40ebee",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"countries",
+								"63683e05f1a237772c40ebee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Bolivia\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3500/countries/63683e05f1a237772c40ebee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"countries",
+										"63683e05f1a237772c40ebee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "185"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b9-iubzMBFRM4EcBgRr6uYHr7phusU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Nov 2022 23:08:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"63683e05f1a237772c40ebee\",\n    \"name\": \"Bolivia\",\n    \"cities\": [],\n    \"region\": \"63639a24dcce370c91594b1c\",\n    \"createdAt\": \"2022-11-06T23:06:45.635Z\",\n    \"updatedAt\": \"2022-11-06T23:08:26.649Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3500/countries/63683e05f1a237772c40ebee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"countries",
+										"63683e05f1a237772c40ebee"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-Shtk1Jt8VehiZ4JQALllISaFAXs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 00:07:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation failed\",\n    \"error\": {\n        \"name\": \"Path `name` is required.\"\n    }\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Peru\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3500/countries/63683e05f1a237772c40ebe1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"countries",
+										"63683e05f1a237772c40ebe1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-3dBTjwqURYxAtCDBjBSm4i5f9Sw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Nov 2022 03:29:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"country with id: 63683e05f1a237772c40ebe1 not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a country",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/countries/63683e05f1a237772c40ebee",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"countries",
+								"63683e05f1a237772c40ebee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "409",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/countries/6363cfcbdcce370c91594b24",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"countries",
+										"6363cfcbdcce370c91594b24"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "261"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"105-glsc8c5tyfmRbePIcCcVF0I13WU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:27:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cannot delete country: 6363cfcbdcce370c91594b24. Country has cities: 63640997dcce370c91594b40,636b1b4542bd0e55f62d5130\",\n    \"error\": \"Cannot delete country: 6363cfcbdcce370c91594b24. Country has cities: 63640997dcce370c91594b40,636b1b4542bd0e55f62d5130\"\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/countries/6363cfcbdcce370c91594b23",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"countries",
+										"6363cfcbdcce370c91594b23"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "111"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6f-uYC+DyRMG8HVCABTMR6ut9HmH+s\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:27:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Country 6363cfcbdcce370c91594b23 not found.\",\n    \"error\": \"Country 6363cfcbdcce370c91594b23 not found.\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/countries/63683e05f1a237772c40ebee",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"countries",
+										"63683e05f1a237772c40ebee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "182"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b6-kmR6M/2G08pLne/PZ0QmHzvRORE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:28:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"63683e05f1a237772c40ebee\",\n    \"name\": \"Peru\",\n    \"cities\": [],\n    \"region\": \"63639a24dcce370c91594b1c\",\n    \"createdAt\": \"2022-11-06T23:06:45.635Z\",\n    \"updatedAt\": \"2022-11-07T00:07:22.092Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2FuZGVsYSIsInN1cm5hbWUiOiJSdWJpb2xvIiwiZW1haWwiOiJjYWNoaUBob3RtYWlsLmNvbSIsInByb2ZpbGUiOiJBRE1JTiIsImlhdCI6MTY3MDY4OTMzNywiZXhwIjoxNjcwNjk2NTM3fQ.UFp9Z1egsqFsYYQHI51alE-mP2p8yoW1gQoLiBkyU8A",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Cities",
+			"item": [
+				{
+					"name": "List of all cities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/cities",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3500/cities",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"cities"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "532"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"214-Jh4/le47VSlC7CxanE6VqvQ8y8c\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Nov 2022 03:15:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"63640997dcce370c91594b40\",\n        \"name\": \"Cordoba\",\n        \"country\": {\n            \"_id\": \"6363cfcbdcce370c91594b24\",\n            \"name\": \"Argentina\",\n            \"cities\": [\n                \"63640997dcce370c91594b40\",\n                \"636b1b4542bd0e55f62d5130\"\n            ],\n            \"updatedAt\": \"2022-11-09T03:15:17.977Z\"\n        }\n    },\n    {\n        \"_id\": \"636b1b4542bd0e55f62d5130\",\n        \"name\": \"Buenos Aires\",\n        \"country\": {\n            \"_id\": \"6363cfcbdcce370c91594b24\",\n            \"name\": \"Argentina\",\n            \"cities\": [\n                \"63640997dcce370c91594b40\",\n                \"636b1b4542bd0e55f62d5130\"\n            ],\n            \"updatedAt\": \"2022-11-09T03:15:17.977Z\"\n        },\n        \"createdAt\": \"2022-11-09T03:15:17.972Z\",\n        \"updatedAt\": \"2022-11-09T03:15:17.972Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a city",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ciudad de Guatemala\",\n    \"country\":\"637bd9853b5bb871e3329a02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/cities",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Buenos Aires\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/cities",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"cities"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-leNg/ie4Xr/9tU6EoJ6P1tW/+z0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Nov 2022 03:12:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The id of country is not valid\"\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Buenos Aires\",\n    \"country\":\"6363cfcbdcce370c91594b2a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/cities",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"cities"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-emEgGKXXDDL2jxIimcDXlDh1A0M\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Nov 2022 03:14:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Country not found.\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Buenos Aires\",\n    \"country\":\"6363cfcbdcce370c91594b24\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/cities",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"cities"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "179"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b3-7tH3+oIaCUF4gS9irE8y5ASqQ3U\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Nov 2022 03:15:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Buenos Aires\",\n    \"country\": \"6363cfcbdcce370c91594b24\",\n    \"_id\": \"636b1b4542bd0e55f62d5130\",\n    \"createdAt\": \"2022-11-09T03:15:17.972Z\",\n    \"updatedAt\": \"2022-11-09T03:15:17.972Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a city by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/cities/63640997dcce370c91594b41",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"cities",
+								"63640997dcce370c91594b41"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3500/cities/63640997dcce370c91594b40",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"cities",
+										"63640997dcce370c91594b40"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "219"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"db-HolVYbwPjY1vi6A+7502pcIpqrE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Nov 2022 03:18:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"63640997dcce370c91594b40\",\n    \"name\": \"Cordoba\",\n    \"country\": {\n        \"_id\": \"6363cfcbdcce370c91594b24\",\n        \"name\": \"Argentina\",\n        \"cities\": [\n            \"63640997dcce370c91594b40\",\n            \"636b1b4542bd0e55f62d5130\"\n        ],\n        \"updatedAt\": \"2022-11-09T03:15:17.977Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Modify a city",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/cities/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"cities",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"delta\":\"alfa\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/cities/63640997dcce370c91594b40",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"cities",
+										"63640997dcce370c91594b40"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35-BB1W5qADWXzRhhVJ9jlizdlOIBw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Nov 2022 03:23:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"city not found\",\n    \"error\": \"city not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a city",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/cities/636b1b4542bd0e55f62d5130",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"cities",
+								"636b1b4542bd0e55f62d5130"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/cities/636b1b4542bd0e55f62d5131",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"cities",
+										"636b1b4542bd0e55f62d5131"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"69-wmfSeiOXPm69mcTtw8+vU9DJc+g\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:18:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"City 636b1b4542bd0e55f62d5131 not found.\",\n    \"error\": \"City 636b1b4542bd0e55f62d5131 not found.\"\n}"
+						},
+						{
+							"name": "409 (contacts)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/cities/63640997dcce370c91594b40",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"cities",
+										"63640997dcce370c91594b40"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "265"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"109-wIsMJFW5YNweexpKlLdoEn81eMM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:16:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cannot delete city: 63640997dcce370c91594b40. City refers to contacts: 6364d6209334caf9050e07c9,638f850624f8705cfec0ae05\",\n    \"error\": \"Cannot delete city: 63640997dcce370c91594b40. City refers to contacts: 6364d6209334caf9050e07c9,638f850624f8705cfec0ae05\"\n}"
+						},
+						{
+							"name": "409 (companies)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/cities/636b1b4542bd0e55f62d5130",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"cities",
+										"636b1b4542bd0e55f62d5130"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "217"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d9-MjbEqM9925vI8/qNnDf5ivVkgnc\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:19:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cannot delete city: 636b1b4542bd0e55f62d5130. City refers to companies: 63641b56dcce370c91594b45\",\n    \"error\": \"Cannot delete city: 636b1b4542bd0e55f62d5130. City refers to companies: 63641b56dcce370c91594b45\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/cities/63640997dcce370c91594b40",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"cities",
+										"63640997dcce370c91594b40"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-DckwWxzfcXIhAEt2M4QvKnN8wjM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:21:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"63640997dcce370c91594b40\",\n    \"name\": \"Cordoba\",\n    \"country\": \"6363cfcbdcce370c91594b24\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUm9iZXJ0byIsInN1cm5hbWUiOiJEaWF6IiwiZW1haWwiOiJpbmR5TUBnbWFpbC5jb20iLCJwcm9maWxlIjoiQURNSU4iLCJpYXQiOjE2NzA2MjgzNTAsImV4cCI6MTY3MDYzNTU1MH0.AcZ2vv7wz_9Bzm2ZsZzvNZ3NIovnTQ1qs_1U9U9myg4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "List of all companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/companies",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3500/companies",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"companies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "309"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"135-6dtByfrC54w6yacxstpAoDR/hm4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Nov 2022 02:39:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"63641b56dcce370c91594b45\",\n        \"name\": \"Claro\",\n        \"email\": \"claro@gmail.com\",\n        \"phone\": \" 02994589875\",\n        \"address\": \"Chile 410\",\n        \"city\": {\n            \"_id\": \"636b1b4542bd0e55f62d5130\",\n            \"name\": \"Buenos Aires\",\n            \"country\": \"6363cfcbdcce370c91594b24\",\n            \"createdAt\": \"2022-11-09T03:15:17.972Z\",\n            \"updatedAt\": \"2022-11-09T03:15:17.972Z\",\n            \"__v\": 0\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Claro\",\n    \"email\": \"hola@claro.com\",\n    \"phone\": \" 02994589875\",\n    \"address\": \"Maipu 1952\",\n    \"city\": \"637bd8cf3b5bb871e33299ec\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/companies",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Movistar\",\n    \"email\": \"hola@movistar.com\",\n    \"phone\": \" 02994589875\",\n    \"address\": \"Maipu 1952\",\n    \"city\": \"636b1b4542bd0e55f62d5130\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/companies",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"companies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "245"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f5-z2EMnUOh7Kwf2Jdy6vtEWVW4o9E\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Nov 2022 02:45:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Movistar\",\n    \"email\": \"hola@movistar.com\",\n    \"phone\": \"02994589875\",\n    \"address\": \"Maipu 1952\",\n    \"city\": \"636b1b4542bd0e55f62d5130\",\n    \"_id\": \"636c65e59eb19a435b6ce616\",\n    \"createdAt\": \"2022-11-10T02:45:57.481Z\",\n    \"updatedAt\": \"2022-11-10T02:45:57.481Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a company by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/companies/63641b56dcce370c91594b45",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"companies",
+								"63641b56dcce370c91594b45"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3500/companies/63641b56dcce370c91594b45",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"companies",
+										"63641b56dcce370c91594b45"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "640"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"280-rFXDsCW48SdJEZ8oVZt7ys/VY8o\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Nov 2022 02:42:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"63641b56dcce370c91594b45\",\n    \"name\": \"Claro\",\n    \"email\": \"claro@gmail.com\",\n    \"phone\": \" 02994589875\",\n    \"address\": \"Chile 410\",\n    \"city\": {\n        \"_id\": \"636b1b4542bd0e55f62d5130\",\n        \"name\": \"Buenos Aires\",\n        \"country\": {\n            \"_id\": \"6363cfcbdcce370c91594b24\",\n            \"name\": \"Argentina\",\n            \"cities\": [\n                \"63640997dcce370c91594b40\",\n                \"636b1b4542bd0e55f62d5130\"\n            ],\n            \"updatedAt\": \"2022-11-09T03:15:17.977Z\",\n            \"region\": {\n                \"_id\": \"63639a24dcce370c91594b1c\",\n                \"name\": \"Latinoamérica\",\n                \"countries\": [\n                    \"6363cfcbdcce370c91594b24\",\n                    \"63683e05f1a237772c40ebee\",\n                    \"636849a4f966d556e94e70f0\"\n                ],\n                \"updatedAt\": \"2022-11-06T23:56:20.041Z\"\n            }\n        },\n        \"createdAt\": \"2022-11-09T03:15:17.972Z\",\n        \"updatedAt\": \"2022-11-09T03:15:17.972Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Modify a company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": \"Lima 840\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/companies/636c65e59eb19a435b6ce616",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"companies",
+								"636c65e59eb19a435b6ce616"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Motorola\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/companies/636c65e59eb19a435b6ce616",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"companies",
+										"636c65e59eb19a435b6ce616"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "245"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f5-jzAs4G2xPhNtb9IVHpjPXg5Lj1I\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Nov 2022 02:49:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"636c65e59eb19a435b6ce616\",\n    \"name\": \"Motorola\",\n    \"email\": \"hola@movistar.com\",\n    \"phone\": \"02994589875\",\n    \"address\": \"Maipu 1952\",\n    \"city\": \"636b1b4542bd0e55f62d5130\",\n    \"createdAt\": \"2022-11-10T02:45:57.481Z\",\n    \"updatedAt\": \"2022-11-10T02:49:47.453Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"city\": \"63640997dcce370c91594b41\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/companies/636c65e59eb19a435b6ce616",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"companies",
+										"636c65e59eb19a435b6ce616"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-OxFEqmpmg3eecvmzh/U0NIYqtWw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Nov 2022 02:50:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"City not found.\",\n    \"error\": \"City not found.\"\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Motorola\",\n    \"city\": \"63640997dcce370c91594b40\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3500/companies/636c65e59eb19a435b6ce617",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"companies",
+										"636c65e59eb19a435b6ce617"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-xcCi/MC4TYU/k579UmbYyeRyows\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Nov 2022 02:50:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"company with id: 636c65e59eb19a435b6ce617 not found\",\n    \"error\": \"company with id: 636c65e59eb19a435b6ce617 not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/companies/636c65e59eb19a435b6ce616",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"companies",
+								"636c65e59eb19a435b6ce616"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/companies/636c65e59eb19a435b6ce616",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"companies",
+										"636c65e59eb19a435b6ce616"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "243"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f3-+U3j9KkRjC7HriyK4tiWJo9PJZs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:10:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"636c65e59eb19a435b6ce616\",\n    \"name\": \"Motorola\",\n    \"email\": \"hola@movistar.com\",\n    \"phone\": \"02994589875\",\n    \"address\": \"Lima 840\",\n    \"city\": \"63640997dcce370c91594b40\",\n    \"createdAt\": \"2022-11-10T02:45:57.481Z\",\n    \"updatedAt\": \"2022-11-10T02:53:48.009Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "409",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/companies/63641b56dcce370c91594b45",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"companies",
+										"63641b56dcce370c91594b45"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"111-hcWcn3xwzYs2OPaj2LgAl6J+fqM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:08:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cant delete company: 63641b56dcce370c91594b45. Company refers to contacts: 6364d6209334caf9050e07c9,638f850624f8705cfec0ae05\",\n    \"error\": \"Cant delete company: 63641b56dcce370c91594b45. Company refers to contacts: 6364d6209334caf9050e07c9,638f850624f8705cfec0ae05\"\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/companies/63641b56dcce370c91594b44",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"companies",
+										"63641b56dcce370c91594b44"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "111"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6f-BsXAUMvwErtiYQKkAQukZMslMjI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 18:09:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Company 63641b56dcce370c91594b44 not found.\",\n    \"error\": \"Company 63641b56dcce370c91594b44 not found.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "List of all contacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/contacts",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3500/contacts",
+									"host": [
+										"localhost"
+									],
+									"port": "3500",
+									"path": [
+										"contacts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1030"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"406-sNraSQLId+ttt67Lyh0ZIGUD9yk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Nov 2022 02:58:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6364d6209334caf9050e07c9\",\n        \"name\": \"Adriana\",\n        \"surname\": \"Aguirre\",\n        \"email\": \"adriana-ag@gmail.com\",\n        \"position\": \"\",\n        \"company\": {\n            \"_id\": \"63641b56dcce370c91594b45\",\n            \"name\": \"Claro\",\n            \"email\": \"claro@gmail.com\",\n            \"phone\": \" 02994589875\",\n            \"address\": \"Chile 410\",\n            \"city\": \"636b1b4542bd0e55f62d5130\"\n        },\n        \"address\": \"Chile 412\",\n        \"channels\": [\n            {\n                \"_id\": \"636c68e437c4948f1f1f63cd\",\n                \"channel\": {\n                    \"_id\": \"6364e6ea9334caf9050e07ce\",\n                    \"name\": \"Facebook\"\n                },\n                \"account\": \"https://facebook.com/adriana-aguirre\",\n                \"preference\": \"NO_PREFERENCE\"\n            }\n        ],\n        \"interest\": 10,\n        \"city\": {\n            \"_id\": \"636b1b4542bd0e55f62d5130\",\n            \"name\": \"Buenos Aires\",\n            \"country\": {\n                \"_id\": \"6363cfcbdcce370c91594b24\",\n                \"name\": \"Argentina\",\n                \"cities\": [\n                    \"63640997dcce370c91594b40\",\n                    \"636b1b4542bd0e55f62d5130\"\n                ],\n                \"updatedAt\": \"2022-11-09T03:15:17.977Z\",\n                \"region\": {\n                    \"_id\": \"63639a24dcce370c91594b1c\",\n                    \"name\": \"Latinoamérica\",\n                    \"countries\": [\n                        \"6363cfcbdcce370c91594b24\",\n                        \"63683e05f1a237772c40ebee\",\n                        \"636849a4f966d556e94e70f0\"\n                    ],\n                    \"updatedAt\": \"2022-11-06T23:56:20.041Z\"\n                }\n            },\n            \"createdAt\": \"2022-11-09T03:15:17.972Z\",\n            \"updatedAt\": \"2022-11-09T03:15:17.972Z\",\n            \"__v\": 0\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Candela\",\n    \"surname\": \"Rubiolo\",\n    \"email\": \"rodrigossscc_r_r@gmail.com\",\n    \"position\": \"Technical Leader\",\n    \"company\": \"637e87dd3b5bb871e3329b1d\",\n    \"city\": \"637bd9253b5bb871e33299f7\",\n    \"address\": \"Catamarca 45\",\n    \"channels\": [\n        {\n            \"channel\": \"TWITTER\",\n            \"account\": \"zxczxczxc\",\n            \"preference\": \"NO_PREFERENCE\",\n            \"_id\": \"99ae5802-b2cf-477e-9a9a-15c5bebbfc94\"\n        }\n    ],\n    \"interest\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/contacts",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 cityId not valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Pablo David\",\n    \"surname\": \"Encina, Andreozzi\",\n    \"email\": \"pablo@gmail.com\",\n    \"position\": \"Developer\",\n    \"company\": \"63641b56dcce370c91dd594b45\",\n    \"city\": \"65s4df5sdf4sdf4df\",\n    \"address\": \"Lima 1478\",\n    \"channels\": [\n        {\n            \"channel\": \"Facebook\",\n            \"account\": \"pablo_Encina.facebook.com\",\n            \"preference\": \"NO_PREFERENCE\"\n        }\n    ],\n    \"interest\": \"50%\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/contacts",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"contacts"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-y7dpXWnVXhXjSJhPdsCime+BYt0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 11:54:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The id of city is not valid\"\n}"
+						},
+						{
+							"name": "400 companyId not valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Pablo David\",\n    \"surname\": \"Encina, Andreozzi\",\n    \"email\": \"pablo@gmail.com\",\n    \"position\": \"Developer\",\n    \"company\": \"637e87dd3b5bb871e3329b1d\",\n    \"city\": \"637bd9a73b5bb871e3329a06\",\n    \"address\": \"Lima 1478\",\n    \"channels\": [\n        {\n            \"channel\": \"Facebook\",\n            \"account\": \"pablo_Encina.facebook.com\",\n            \"preference\": \"NO_PREFERENCE\"\n        }\n    ],\n    \"interest\": \"50%\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/contacts",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"contacts"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-kKD/F42LUO6M63ydAie40AP3qPQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 17:26:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The id of company is not valid\"\n}"
+						},
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Pablo David\",\n    \"surname\": \"Encina, Andreozzi\",\n    \"email\": \"pablo@gmail.com\",\n    \"position\": \"Developer\",\n    \"company\": \"637e87dd3b5bb871e3329b1d\",\n    \"city\": \"637bd9a73b5bb871e3329a06\",\n    \"address\": \"Lima 1478\",\n    \"channels\": [\n        {\n            \"channel\": \"Facebook\",\n            \"account\": \"pablo_Encina.facebook.com\",\n            \"preference\": \"NO_PREFERENCE\"\n        }\n    ],\n    \"interest\": 50\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/contacts",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"contacts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "463"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1cf-STpRSaFK29PShZ6hIC/ZqOoWvlc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 17:28:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Pablo David\",\n    \"surname\": \"Encina, Andreozzi\",\n    \"email\": \"pablo@gmail.com\",\n    \"position\": \"Developer\",\n    \"company\": \"637e87dd3b5bb871e3329b1d\",\n    \"city\": \"637bd9a73b5bb871e3329a06\",\n    \"address\": \"Lima 1478\",\n    \"channels\": [\n        {\n            \"channel\": \"Facebook\",\n            \"account\": \"pablo_Encina.facebook.com\",\n            \"preference\": \"NO_PREFERENCE\",\n            \"_id\": \"638a35d0910487047493597a\"\n        }\n    ],\n    \"interest\": 50,\n    \"_id\": \"638a35d09104870474935979\",\n    \"createdAt\": \"2022-12-02T17:28:48.043Z\",\n    \"updatedAt\": \"2022-12-02T17:28:48.043Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a contact by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/contacts/6392407c0bf3dc28c2b11a0b",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"contacts",
+								"6392407c0bf3dc28c2b11a0b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/contacts/6392407c0bf3dc28c2b11a0b",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"contacts",
+										"6392407c0bf3dc28c2b11a0b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1338"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53a-oH4TPqX81VJMgj/wAnpxJBpbdTg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 16:30:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6392407c0bf3dc28c2b11a0b\",\n    \"name\": \"Indiana\",\n    \"surname\": \"Rubio\",\n    \"email\": \"insdfgdyM@gmail.com\",\n    \"position\": \"Odontología\",\n    \"company\": {\n        \"_id\": \"637e87dd3b5bb871e3329b1d\",\n        \"name\": \"Farmacity\",\n        \"email\": \"hola@claro.com\",\n        \"phone\": \"02994589875\",\n        \"address\": \"Chacabuco 1952\",\n        \"city\": \"637bd9a73b5bb871e3329a06\",\n        \"createdAt\": \"2022-11-23T20:51:41.538Z\",\n        \"updatedAt\": \"2022-12-01T17:41:25.852Z\",\n        \"__v\": 0\n    },\n    \"city\": {\n        \"_id\": \"637bd9253b5bb871e33299f7\",\n        \"name\": \"Neuquen\",\n        \"country\": {\n            \"_id\": \"637bd8643b5bb871e33299e0\",\n            \"name\": \"Argentina\",\n            \"cities\": [\n                \"637bd9253b5bb871e33299f7\",\n                \"637bd92d3b5bb871e33299fb\"\n            ],\n            \"region\": {\n                \"_id\": \"637bd8073b5bb871e33299dc\",\n                \"name\": \"Sudamerica\",\n                \"countries\": [\n                    \"637bd8643b5bb871e33299e0\",\n                    \"637bd8823b5bb871e33299e6\"\n                ],\n                \"createdAt\": \"2022-11-21T19:56:55.041Z\",\n                \"updatedAt\": \"2022-11-21T19:58:58.097Z\",\n                \"__v\": 0\n            },\n            \"createdAt\": \"2022-11-21T19:58:28.639Z\",\n            \"updatedAt\": \"2022-11-21T20:01:49.384Z\",\n            \"__v\": 0\n        },\n        \"createdAt\": \"2022-11-21T20:01:41.904Z\",\n        \"updatedAt\": \"2022-11-21T20:01:41.904Z\",\n        \"__v\": 0\n    },\n    \"address\": \"Belgrano 677\",\n    \"channels\": [\n        {\n            \"channel\": \"TWITTER\",\n            \"account\": \"jkljñljljl\",\n            \"preference\": \"NO_PREFERENCE\",\n            \"_id\": \"6392406cccd6a7edc9fcae9d\"\n        },\n        {\n            \"channel\": \"INSTAGRAM\",\n            \"account\": \"jkljñljljllllljjjjjjjjjjjjjjjj\",\n            \"preference\": \"DO_NOT_DISTURB\",\n            \"_id\": \"63924075ccd6a7edc9fcae9e\"\n        }\n    ],\n    \"interest\": 50,\n    \"createdAt\": \"2022-12-08T19:52:28.518Z\",\n    \"updatedAt\": \"2022-12-08T22:49:45.271Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Modify a contact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"surname\": \"Rubiolini\"   \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:3500/contacts/6392407c0bf3dc28c2b11a0b",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"contacts",
+								"6392407c0bf3dc28c2b11a0b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"surname\": \"Rubiolini\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3500/contacts/6392407c0bf3dc28c2b11a0b",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"contacts",
+										"6392407c0bf3dc28c2b11a0b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "577"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"241-slKWV+Upmk5hrMtCZw6yUVYUWoo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 16:31:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6392407c0bf3dc28c2b11a0b\",\n    \"name\": \"Indiana\",\n    \"surname\": \"Rubiolini\",\n    \"email\": \"insdfgdyM@gmail.com\",\n    \"position\": \"Odontología\",\n    \"company\": \"637e87dd3b5bb871e3329b1d\",\n    \"city\": \"637bd9253b5bb871e33299f7\",\n    \"address\": \"Belgrano 677\",\n    \"channels\": [\n        {\n            \"channel\": \"TWITTER\",\n            \"account\": \"jkljñljljl\",\n            \"preference\": \"NO_PREFERENCE\",\n            \"_id\": \"6392406cccd6a7edc9fcae9d\"\n        },\n        {\n            \"channel\": \"INSTAGRAM\",\n            \"account\": \"jkljñljljllllljjjjjjjjjjjjjjjj\",\n            \"preference\": \"DO_NOT_DISTURB\",\n            \"_id\": \"63924075ccd6a7edc9fcae9e\"\n        }\n    ],\n    \"interest\": 50,\n    \"createdAt\": \"2022-12-08T19:52:28.518Z\",\n    \"updatedAt\": \"2022-12-10T16:31:33.112Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:3500/contacts/63924a840bf3dc28c2b11a6f",
+							"host": [
+								"{{host}}"
+							],
+							"port": "3500",
+							"path": [
+								"contacts",
+								"63924a840bf3dc28c2b11a6f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3500/contacts/63924a840bf3dc28c2b11a6f",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3500",
+									"path": [
+										"contacts",
+										"63924a840bf3dc28c2b11a6f"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS, PUT, DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "442"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ba-ePENHEwj4pVhTWJ8DMN0bU8brC8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 16:37:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"63924a840bf3dc28c2b11a6f\",\n    \"name\": \"Amelia\",\n    \"surname\": \"Carmona\",\n    \"email\": \"amely_car@gmail.com\",\n    \"position\": \"Odontología\",\n    \"company\": \"637e87dd3b5bb871e3329b1d\",\n    \"city\": \"637bd92d3b5bb871e33299fb\",\n    \"address\": \"Chile 23\",\n    \"channels\": [\n        {\n            \"channel\": \"INSTAGRAM\",\n            \"account\": \"carmencitafac\",\n            \"preference\": \"NO_PREFERENCE\",\n            \"_id\": \"63924a8091d9c26112ae10a5\"\n        }\n    ],\n    \"interest\": 0,\n    \"createdAt\": \"2022-12-08T20:35:16.409Z\",\n    \"updatedAt\": \"2022-12-08T20:35:16.409Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2FuZGVsYSIsInN1cm5hbWUiOiJSdWJpb2xvIiwiZW1haWwiOiJjYWNoaUBob3RtYWlsLmNvbSIsInByb2ZpbGUiOiJBRE1JTiIsImlhdCI6MTY3MDY4OTMzNywiZXhwIjoxNjcwNjk2NTM3fQ.UFp9Z1egsqFsYYQHI51alE-mP2p8yoW1gQoLiBkyU8A",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "3.83.226.3",
+			"type": "string"
+		}
+	]
+}
